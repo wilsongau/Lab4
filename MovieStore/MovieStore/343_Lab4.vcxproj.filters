@@ -125,5 +125,8 @@
     <ClInclude Include="bintree.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TransactionManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

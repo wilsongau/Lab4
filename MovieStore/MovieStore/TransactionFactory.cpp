@@ -6,8 +6,31 @@
 // ----------------------------------------------------------------------------
 Transaction *& TransactionFactory::MakeTransaction(string command)
 {
-	// Get command type
-	// if type == TransactionType::{TYPE}
-	//		split command into chunks according to the type.
-	//		create Transaction object, and return it 
+	Transaction *t = NULL;
+	const static string HISTORY = "H";
+	const static string INVENTORY = "I";
+	const static string BORROW = "B";
+	const static string RETURN = "R";
+	string id = command.substr(0, 1);
+	if (id == RETURN)
+	{
+		t = new ReturnTransaction(command);
+	}
+	else if (id == INVENTORY)
+	{
+		t = new InventoryTransaction(command);
+	}
+	else if (id == HISTORY)
+	{
+		t = new HistoryTransaction(command);
+	}
+	else if (id == BORROW)
+	{
+		t = new BorrowTransaction(command);
+	}
+	else 
+	{
+		cerr << "ERROR, invalid command: " << command;
+	}
+	return t;
 }

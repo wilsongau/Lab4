@@ -21,6 +21,7 @@ class Item
 
 public:
 	Item();
+	Item(const string &cmd);
 	Item(char id, int stock, const string &name);
 	~Item();
 

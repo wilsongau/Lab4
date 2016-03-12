@@ -19,10 +19,11 @@ class Transaction
 	friend istream& operator>>(istream &in, Transaction &transaction);
 public:
 	Transaction(); //default constructor
+	Transaction(const string &cmd);
 	~Transaction(); //deconstructor
 					
-	virtual char getIdentifier() const = 0; // returns the identifier of child class type
-	
-	virtual bool Process() = 0; // pure virtual.  processes the transaction within the store.
+	char getIdentifier() const; // returns the identifier of child class type
+private:
+	char identifier = 'T';
 };
 #endif

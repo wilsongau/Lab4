@@ -10,7 +10,7 @@
 // Inherited process() will display the current inventory in the store.
 // ---------------------------------------------------------------------------
 #include "Transaction.h"
-class InventoryTransaction : Transaction
+class InventoryTransaction : public Transaction
 {
 	// output stream override
 	friend ostream& operator<<(ostream &out, const InventoryTransaction &transaction);
@@ -19,6 +19,7 @@ class InventoryTransaction : Transaction
 	friend istream& operator>>(istream &in, InventoryTransaction &transaction);
 public:
 	InventoryTransaction(); // default constructor
+	InventoryTransaction(const string &cmd); // string constructor
 	~InventoryTransaction(); // deconstructor
 
 private:
