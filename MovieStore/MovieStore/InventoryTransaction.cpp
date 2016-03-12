@@ -4,9 +4,11 @@
 //	constructor
 //  default constructor for class InventoryTransaction
 // ----------------------------------------------------------------------------
+
 InventoryTransaction::InventoryTransaction()
 {
 }
+
 
 // ----------------------------------------------------------------------------
 //	destructor

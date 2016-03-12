@@ -16,6 +16,7 @@ HistoryTransaction::~HistoryTransaction()
 {
 }
 
+
 // ----------------------------------------------------------------------------
 //	getCustomerId
 //  return customer's id

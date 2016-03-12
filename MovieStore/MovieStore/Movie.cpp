@@ -1,43 +1,3 @@
-<<<<<<< HEAD
-#include "Movie.h"
-
-Movie::Movie()
-{
-	Item('m', 0, "");
-	director = "";
-	releaseYear = 0;
-	type = "";
-}
-
-Movie::Movie(char id, int stock, const string &dir, const string &name,
-	int year, const string & type)
-{
-	Item(id, stock, name);
-	director = dir;
-	releaseYear = year;
-	this->type = type;
-}
-
-Movie::~Movie()
-{
-
-}
-
-string Movie::getDirector() const
-{
-	return director;
-}
-
-int Movie::getReleaseYear() const
-{
-	return releaseYear;
-}
-
-string Movie::getType() const
-{
-	return type;
-}
-=======
 #include "Movie.h"
 
 // ----------------------------------------------------------------------------
@@ -99,4 +59,3 @@ string Movie::getType() const
 {
 	return type;
 }
->>>>>>> 1fb8973f3ef4cb0ffcf74c05761a87159f1ad391
