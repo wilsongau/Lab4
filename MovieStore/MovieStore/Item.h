@@ -21,16 +21,37 @@ class Item
 
 public:
 	Item();
+	Item(char id, int stock, const string &name);
 	~Item();
 
 	//will be overridden by children classes to be handled 
 	//differently based on genre
-	virtual bool Borrow(HashTable<Item> *inventory);
+	bool Borrow(HashTable<Item> *inventory);
+	/*	PSEUDO CODE
 
+		if stock > 0
+			stock -= 1
+		else
+			if classic movie
+				item* temp=NULL;
+				temp = find related movies in inventory if possible
+				if temp != NULL
+					temp.stock -=1
+			else
+				return false
+	*/
+
+	//
 	bool Return(Customer &customer);
-	
-	//returns a string that is used in the hashing function of a hash table
-	virtual string getHashString() const;
+	/*
+		find if there is a borrowed Item that hasen't been 
+		returned by the customer parameter
+
+		if there is
+			add one to stock, update customer transaction list
+		if there is not
+			return false
+	*/
 
 	//returns the unique identifier associated with the item
 	char getIdentifier() const;
@@ -41,10 +62,17 @@ public:
 	//sets the stock of this item when someone borrows or returns a quantity
 	void setStock(int);
 
+	string getName() const;
+	void setName(const string &);
+
 private:
 	//the amount of an item that the store contains
 	int stock;
 
 	//the unique identifier for an item
 	char identifier;
+
+	//name of the item
+	string name;
 };
+

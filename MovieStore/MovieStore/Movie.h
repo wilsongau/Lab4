@@ -1,4 +1,4 @@
-// ---------------------- Movie Header --------------------------
+// ---------------------- Movie Header --------------------------------------
 // Kyle Burney, Wilson Gautama, Armin  Haghi, Benjamin Porter, Maryam Zare 
 // CSS 343 A
 // Created February 24, 2016
@@ -16,7 +16,7 @@
 #include "Item.h"
 using namespace std;
 
-class Movie : public Item
+class Movie
 {
 	//overloads for printing or entering a movie 
 	friend ostream& operator<<(ostream &out, const Movie &movie);
@@ -24,6 +24,8 @@ class Movie : public Item
 
 public:
 	Movie();
+	Movie(char id, int stock, const string &dir, const string &name, int year, 
+		const string &type);
 	~Movie();
 
 	//returns the director associated with a movie
@@ -35,15 +37,9 @@ public:
 	//returns the type of the movie
 	string getType() const;
 
-	//returns the title of the movie
-	virtual string getTitle() const;
-
-protected:
+private:
 	//the director of the movie
 	string director;
-
-	//the title of the movie
-	string title;
 
 	//the year the movie was released
 	int releaseYear;

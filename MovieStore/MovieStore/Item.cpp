@@ -8,53 +8,48 @@ ostream& operator<<(ostream &out, const Item &item)
 istream& operator>>(istream &out, Item &item) 
 {}
 
-//default constructor
 Item::Item()
 {
+	stock = 0;
+	identifier = 'I';
+	name = "";
 }
 
-//default destructor
+Item::Item(char id, int num, const string &name)
+{
+	identifier = id;
+	stock = num;
+	this->name = name;
+}
+
 Item::~Item()
 {
 }
 
-
 bool Item::Borrow(HashTable<Item>* inventory)
 {
-	/*	PSEUDO CODE
-
-	if stock > 0
-	stock -= 1
+	if(stock <= 0)
+	{ 
+		return false;
+	}
 	else
-	if classic movie
-	item* temp=NULL;
-	temp = find related movies in inventory if possible
-	if temp != NULL
-	temp.stock -=1
-	else
-	return false
-	*/
-	return false;
+	{
+		stock--;
+		return true;
+	}
 }
-
 
 bool Item::Return(Customer & customer)
 {
-	/*
-	find if there is a borrowed Item that hasen't been
-	returned by the customer parameter
-
-	if there is
-	add one to stock, update customer transaction list
-	if there is not
-	return false
-	*/
-	return false;
-}
-
-string Item::getHashString() const
-{
-	return string();
+	if (customer.returnItem(name))
+	{
+		stock++;
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
 char Item::getIdentifier() const
@@ -67,6 +62,19 @@ int Item::getStock() const
 	return stock;
 }
 
-void Item::setStock(int)
+void Item::setStock(int quantity)
 {
+	stock = quantity;
 }
+
+string Item::getName() const
+{
+	return name;
+}
+
+void Item::setName(const string &n)
+{
+	name = n;
+}
+
+

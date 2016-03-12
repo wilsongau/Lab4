@@ -18,8 +18,7 @@ class ComedyMovie :
 	friend istream& operator>>(istream &out, ComedyMovie &movie);
 public:
 	ComedyMovie();
+	ComedyMovie(int stock, const string &dir, const string &name,
+		int year, const string & type);
 	~ComedyMovie();
-
-	//used for when the data4movies file specifies what type of movie to store
-	char identifier = 'F';
 };

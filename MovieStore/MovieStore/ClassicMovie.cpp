@@ -2,15 +2,18 @@
 
 ClassicMovie::ClassicMovie()
 {
+	Movie('C', 0, "", "", 0, "D");
+	starringActor = "";
+	releaseMonth = 0;
 }
 
-ClassicMovie::ClassicMovie(const string & directorIn, const string & titleIn, const string & starIn, int monthIn, int yearIn)
+ClassicMovie::ClassicMovie(int stock, const string & director, 
+	const string &title, const string & star, int month, int year, 
+	const string &type)
 {
-	director = directorIn;
-	title = titleIn;
-	starringActor = starIn;
-	releaseMonth = monthIn;
-	releaseYear = yearIn;
+	Movie('C', stock, director, title, year, type);
+	starringActor = star;
+	releaseMonth = month;
 }
 
 ClassicMovie::~ClassicMovie()
