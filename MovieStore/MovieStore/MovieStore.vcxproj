@@ -118,7 +118,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="bintree.h" />
+    <ClInclude Include="bintree.hpp" />
     <ClInclude Include="BorrowTransaction.h" />
     <ClInclude Include="ClassicMovie.h" />
     <ClInclude Include="ComedyMovie.h" />
