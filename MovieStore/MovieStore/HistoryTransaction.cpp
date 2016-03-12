@@ -3,3 +3,12 @@
 HistoryTransaction::HistoryTransaction()
 {
 }
+
+HistoryTransaction::~HistoryTransaction()
+{
+}
+
+int HistoryTransaction::getCustomerId() const
+{
+	return customerId;
+}
