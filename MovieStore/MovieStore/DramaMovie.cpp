@@ -3,3 +3,7 @@
 DramaMovie::DramaMovie()
 {
 }
+
+DramaMovie::~DramaMovie()
+{
+}

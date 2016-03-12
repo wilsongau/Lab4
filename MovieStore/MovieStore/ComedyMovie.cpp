@@ -3,3 +3,7 @@
 ComedyMovie::ComedyMovie()
 {
 }
+
+ComedyMovie::~ComedyMovie()
+{
+}

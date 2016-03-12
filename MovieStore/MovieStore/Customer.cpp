@@ -13,9 +13,9 @@ Customer::Customer(int idIn, string firstNameIn, string lastNameIn)
 
 Customer::~Customer()
 {
-	if (!transactionHistory.isEmpty())
+	for (int i = 0; i < (int)transactionHistory.size(); i++) 
 	{
-		transactionHistory.DeleteList();
+		//delete transactionHistory[i];	 //I don't know if I need this
 	}
 }
 
@@ -42,26 +42,29 @@ void Customer::printHistory() const
 	cout << "=============================================================================" << endl;
 	cout << "Name: " << getFirstName() << " " << getLastName << ", ID: " << getId() << endl;
 	cout << "History:" << endl;
-	LinkedList<Transaction> *current = transactionHistory->pHead; //not this way, but I hope you know what I mean
-	// traverse linkd list
-	while (current != NULL)
-	{   // insert info into vector
-		if (current->pData->getIdentifier() == 'B') 
-		{
-			print_array.push_back("Borrow" + "WHATEVER DATA HERE");
-		}
-		else 
-		{
-			print_array.push_back("Return" + "WHATEVER DATA HERE");
-		}
-		current = current->pNext;
-	}
 
-	vector<string>::reverse_iterator it; // print the history from the earliest to oldest
-	for (it = print_array.rbegin(); it != print_array.rend(); ++it) 
+	int size = transactionHistory.size();
+	if (size > 0) 
 	{
-		cout << *it << endl;          // print history
+		for (int i = 0; i < size; i++) 
+		{			
+			/*if (*(transactionHistory[i]).getIdentifier() == 'B')
+			{
+				cout << "Borrow ";
+			}
+			else
+			{
+				cout << "Return ";
+			}
+			cout << *(transactionHistory[i]).getItem() << endl;	*/	
+		}
+		cout << endl;
 	}
+	else 
+	{
+		cout << "No Transactions for Customer" << endl;
+	}
+	
 	cout << "=============================================================================" << endl;
 	cout << endl;
 }
@@ -73,5 +76,15 @@ string Customer::getHashString() const
 
 bool Customer::addTransaction(Transaction * trans)
 {
-	transactionHistory.Insert(trans);
+	transactionHistory.push_back(trans);
+}
+
+bool Customer::operator==(const Customer& other) const 
+{
+	return (id == other.id);
+}
+
+bool Customer::operator!=(const Customer& other) const
+{
+	return (id != other.id);
 }

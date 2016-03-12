@@ -85,11 +85,9 @@ private:
 	int getHeightHelper(const T &, Node*) const; //Helper function for getHeight
 	int recursiveGetHeightHelper(Node*) const; //recursive getHeight helper
 	bool isEqual(Node*, Node*) const; //Checks if two nodes equal
-	void sideways(Node*, int) const; // provided, helper for displaySideways()
 	int bstreeToArrayHelper(Node*, T*[]); //bstToArray helper
 	void arrayToBSTreeHelper(Node *, T*[], int, int); //helper for arraytoBST
 	void copyTree(Node*, Node*&) const; //Make a copy of BST
-
 
 	bool insertHelper(Node*&, T*);
 };

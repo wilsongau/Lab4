@@ -38,7 +38,7 @@ public:
 	//returns the title of the movie
 	virtual string getTitle() const;
 
-private:
+protected:
 	//the director of the movie
 	string director;
 

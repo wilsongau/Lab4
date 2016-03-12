@@ -20,8 +20,7 @@ class ClassicMovie :
 
 public:
 	ClassicMovie();
-	ClassicMovie(const string &director, const string &title,
-		const string &star, int month, int year);
+	ClassicMovie(const string &, const string &, const string &, int, int);
 	~ClassicMovie();
 
 	//returns the starring actor associated with this instance of a Classic movie
