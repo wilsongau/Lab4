@@ -36,3 +36,9 @@ string Movie::getType() const
 {
 	return type;
 }
+
+string Movie::getTitle() const
+{
+	return title;
+}
+

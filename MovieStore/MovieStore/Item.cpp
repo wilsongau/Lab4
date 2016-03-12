@@ -1,5 +1,13 @@
 #include "Item.h"
 
+//overloads for printing an item
+ostream& operator<<(ostream &out, const Item &item) 
+{}
+
+// overload for entering an item 
+istream& operator>>(istream &out, Item &item) 
+{}
+
 Item::Item()
 {
 	stock = 0;
