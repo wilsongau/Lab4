@@ -20,6 +20,7 @@ class ClassicMovie :
 
 public:
 	ClassicMovie();
+	ClassicMovie(const string &cmd);
 	ClassicMovie(int stock, const string &director, const string &title,
 		const string &star, int month, int year, const string &type);
 	~ClassicMovie();

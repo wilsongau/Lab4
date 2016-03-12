@@ -16,13 +16,6 @@
 #include "HistoryTransaction.h"
 static class TransactionFactory
 {
-	enum TransactionType
-	{
-		I,
-		H,
-		B,
-		R
-	};
 public:
 	static Transaction*& MakeTransaction(string command);
 };

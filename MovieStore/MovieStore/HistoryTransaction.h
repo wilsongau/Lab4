@@ -11,7 +11,7 @@
 // customer account with the id value of customerId.
 // ---------------------------------------------------------------------------
 #include "Transaction.h"
-class HistoryTransaction : Transaction
+class HistoryTransaction : public Transaction
 {
 	// output steam override
 	friend ostream& operator<<(ostream &out,
@@ -21,6 +21,7 @@ class HistoryTransaction : Transaction
 	friend istream& operator>>(istream &in, HistoryTransaction &transaction);
 public:
 	HistoryTransaction(); // default constructor
+	HistoryTransaction(const string &cmd); // string constructor
 	~HistoryTransaction(); // deconstructor
 	int getCustomerId() const; // gets the customer's id number 
 private:

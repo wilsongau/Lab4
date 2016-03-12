@@ -16,7 +16,7 @@
 #include "Transaction.h"
 #include "Item.h"
 #include "HashTable.hpp"
-class BorrowTransaction : Transaction
+class BorrowTransaction : public Transaction
 {
 	// output stream override
 	friend ostream& operator<<(ostream &out,
@@ -26,6 +26,7 @@ class BorrowTransaction : Transaction
 	friend istream& operator>>(istream &in, BorrowTransaction &transaction);
 public:
 	BorrowTransaction(); // default constructor
+	BorrowTransaction(const string &cmd); // string constructor
 	~BorrowTransaction(); // deconstructor
 	int getCustomerId() const; // get customerID
 	char getMediaType() const;  // get media type of the item being borrowed

@@ -16,16 +16,14 @@
 #include "Transaction.h"
 #include "Item.h"
 #include "HashTable.hpp"
-class ReturnTransaction : Transaction
+class ReturnTransaction : public Transaction
 {
 	//output stream override
 	friend ostream& operator<<(ostream &out,
 		const ReturnTransaction &transaction);
-
-	//input stream override
-	friend istream& operator>>(istream &in, ReturnTransaction &transaction);
 public:
 	ReturnTransaction(); //default constructor
+	ReturnTransaction(const string &cmd);
 	~ReturnTransaction(); //deconstructor
 	int getCustomerId() const; // gets customer account id
 	char getMediaType() const;  // gets media type of the item being returned
