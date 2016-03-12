@@ -8,6 +8,10 @@ using namespace std;
 template <typename T>
 class LinkedList
 {
+	// -----------------------------------------------------------------------
+	// operator overload
+	// overload operator <<
+	// -----------------------------------------------------------------------
 	friend ostream& operator<<(ostream &sout, const LinkedList &list)
 	{
 		if (list.isEmpty())
@@ -63,12 +67,20 @@ private:
 	Node* pHead;
 };
 
+// ----------------------------------------------------------------------------
+//	constructor
+//  default constructor for class LinkedList
+// ----------------------------------------------------------------------------
 template <typename T>
 LinkedList<T>::LinkedList()
 {
 	pHead = NULL;
 }
 
+// ----------------------------------------------------------------------------
+//	copy constructor
+//  copy constructor for class LinkedList
+// ----------------------------------------------------------------------------
 template <typename T>
 LinkedList<T>::LinkedList(const LinkedList &source)
 {
@@ -76,20 +88,24 @@ LinkedList<T>::LinkedList(const LinkedList &source)
 	*this = source;
 }
 
-
+// ----------------------------------------------------------------------------
+//	destructor
+//  default destructor for class CustomeLinkedListrAccounts
+// ----------------------------------------------------------------------------
 template <typename T>
 LinkedList<T>::~LinkedList()
 {
 	DeleteList();
 }
 
-
-
+// ----------------------------------------------------------------------------
+//	BuildList(string)
+//  Build list based on filename
+// ----------------------------------------------------------------------------
 template <typename T>
 bool LinkedList<T>::BuildList(string FileName)
 {
 	ifstream readFile(FileName);
-	//DeleteList(); //make sure the list is empty
 
 	if (!readFile || FileName.empty())
 	{
@@ -107,6 +123,10 @@ bool LinkedList<T>::BuildList(string FileName)
 	return true;
 }
 
+// ----------------------------------------------------------------------------
+//	Insert(T)
+//  Insert an item to the linked list
+// ----------------------------------------------------------------------------
 template <typename T>
 bool LinkedList<T>::Insert(T *obj)
 {
@@ -136,6 +156,10 @@ bool LinkedList<T>::Insert(T *obj)
 	}
 }
 
+// ----------------------------------------------------------------------------
+//	Remove(T)
+//  Remove an item from linked list
+// ----------------------------------------------------------------------------
 template <typename T>
 bool LinkedList<T>::Remove(T target, T &result)
 {
@@ -149,7 +173,6 @@ bool LinkedList<T>::Remove(T target, T &result)
 	{
 		return false;
 	}
-
 
 	Node *current = pHead;
 	Node *previous = pHead;
@@ -184,6 +207,10 @@ bool LinkedList<T>::Remove(T target, T &result)
 	return false;
 }
 
+// ----------------------------------------------------------------------------
+//	Peek(const T, T&)
+//  Check if an item was found in the linked list
+// ----------------------------------------------------------------------------
 template <typename T>
 bool LinkedList<T>::Peek(const T target, T &result) const
 {
@@ -213,6 +240,10 @@ bool LinkedList<T>::Peek(const T target, T &result) const
 	return false;
 }
 
+// ----------------------------------------------------------------------------
+//	isEmpty
+//  return true if the list is empty
+// ----------------------------------------------------------------------------
 template <typename T>
 bool LinkedList<T>::isEmpty() const
 {
@@ -226,6 +257,10 @@ bool LinkedList<T>::isEmpty() const
 	}
 }
 
+// ----------------------------------------------------------------------------
+//	DeleteList()
+//  Remove the list
+// ----------------------------------------------------------------------------
 template <typename T>
 void LinkedList<T>::DeleteList()
 {
@@ -248,6 +283,10 @@ void LinkedList<T>::DeleteList()
 	return;
 }
 
+// ----------------------------------------------------------------------------
+//	Merge(LinkedList &)
+//  Merge two linked list
+// ----------------------------------------------------------------------------
 template <typename T>
 bool LinkedList<T>::Merge(LinkedList &list1)
 {
@@ -305,6 +344,10 @@ bool LinkedList<T>::Merge(LinkedList &list1)
 	return true;
 }
 
+// ----------------------------------------------------------------------------
+//	operator overload
+//  overload operator +
+// ----------------------------------------------------------------------------
 template <typename T>
 LinkedList<T> LinkedList<T>::operator+(const LinkedList &other) const
 {
@@ -313,15 +356,13 @@ LinkedList<T> LinkedList<T>::operator+(const LinkedList &other) const
 	return result;
 }
 
+// ----------------------------------------------------------------------------
+//	operator overload
+//  overload operator +
+// ----------------------------------------------------------------------------
 template <typename T>
 LinkedList<T>& LinkedList<T>::operator+=(const LinkedList &other)
 {
-	/*
-	List342<T> temp(other);
-	this->Merge(temp);
-	return *this;
-	*/
-
 	if ((this == &other) || (other.isEmpty()))
 	{
 		return *this;  // original list is same with passed list OR passed list is empty, nothing to do.
@@ -365,6 +406,10 @@ LinkedList<T>& LinkedList<T>::operator+=(const LinkedList &other)
 	return *this;
 }
 
+// ----------------------------------------------------------------------------
+//	operator overload
+//  overload operator ==
+// ----------------------------------------------------------------------------
 template <typename T>
 bool LinkedList<T>::operator==(const LinkedList &other) const
 {
@@ -399,12 +444,20 @@ bool LinkedList<T>::operator==(const LinkedList &other) const
 	return false;
 }
 
+// ----------------------------------------------------------------------------
+//	operator overload
+//  overload operator !=
+// ----------------------------------------------------------------------------
 template <typename T>
 bool LinkedList<T>::operator!=(const LinkedList &other) const
 {
 	return !(*this == other);
 }
 
+// ----------------------------------------------------------------------------
+//	operator overload
+//  overload operator =
+// ----------------------------------------------------------------------------
 template <class T>
 LinkedList<T>& LinkedList<T>::operator=(const LinkedList &other)
 {

@@ -18,9 +18,6 @@
     <ClCompile Include="343_Lab4_Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bintree.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="BorrowTransaction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -71,9 +68,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="bintree.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="BorrowTransaction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -126,6 +120,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TransactionFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bintree.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

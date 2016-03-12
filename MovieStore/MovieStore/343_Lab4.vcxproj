@@ -20,7 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="343_Lab4_Main.cpp" />
-    <ClCompile Include="bintree.cpp" />
     <ClCompile Include="BorrowTransaction.cpp" />
     <ClCompile Include="ClassicMovie.cpp" />
     <ClCompile Include="ComedyMovie.cpp" />
@@ -39,7 +38,7 @@
     <ClCompile Include="TransactionFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="bintree.h" />
+    <ClInclude Include="bintree.hpp" />
     <ClInclude Include="BorrowTransaction.h" />
     <ClInclude Include="ClassicMovie.h" />
     <ClInclude Include="ComedyMovie.h" />
