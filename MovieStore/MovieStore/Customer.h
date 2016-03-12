@@ -45,11 +45,19 @@ public:
 	// get the hashString for the customer
 	string getHashString() const;
 
+<<<<<<< HEAD
 	bool addTransaction(Transaction * trans); // add transaction
 	bool returnItem(const string &name); // returns an item
+=======
+	bool addTransaction(Transaction *); // add transaction
+
+
+	bool operator==(const Customer& ) const;
+	bool operator!=(const Customer& ) const;
+>>>>>>> 1fb8973f3ef4cb0ffcf74c05761a87159f1ad391
 
 private:
 	int id;// customer ID
 	string firstName, lastName;// string of customer first and last name
-	LinkedList<Transaction> transactionHistory; // Link list of transcations
+	vector<Transaction*> transactionHistory; // vector of transcations
 };

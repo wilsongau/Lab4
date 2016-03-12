@@ -1,5 +1,5 @@
 #include "bintree.h"
-#include "HashTable.h"
+#include "HashTable.hpp"
 
 int main()
 {
