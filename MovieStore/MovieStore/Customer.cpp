@@ -75,3 +75,8 @@ bool Customer::addTransaction(Transaction * trans)
 {
 	transactionHistory.Insert(trans);
 }
+
+bool Customer::returnItem(const Item & item)
+{
+	return false;
+}

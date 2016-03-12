@@ -12,7 +12,7 @@
 
 #include "Movie.h"
 class ClassicMovie :
-	public Movie
+	public Movie, public Item
 {
 	//overloads for printing or entering a Classic movie 
 	friend ostream& operator<<(ostream &out, const ClassicMovie &movie);
@@ -20,8 +20,8 @@ class ClassicMovie :
 
 public:
 	ClassicMovie();
-	ClassicMovie(const string &director, const string &title,
-		const string &star, int month, int year);
+	ClassicMovie(int stock, const string &director, const string &title,
+		const string &star, int month, int year, const string &type);
 	~ClassicMovie();
 
 	//returns the starring actor associated with this instance of a Classic movie
@@ -29,14 +29,10 @@ public:
 
 	//returns the month that the movie was released
 	int getReleaseMonth() const;
-
 private:
 	//staring actor for this instance of a Classic movie
 	string starringActor;
 
 	//the month that the movie was released
 	int releaseMonth;
-
-	//used for when the data4movies file specifies what type of movie to store
-	char identifier = 'C';
 };

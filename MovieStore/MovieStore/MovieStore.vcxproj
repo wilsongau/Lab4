@@ -118,6 +118,50 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="bintree.h" />
+    <ClInclude Include="BorrowTransaction.h" />
+    <ClInclude Include="ClassicMovie.h" />
+    <ClInclude Include="ComedyMovie.h" />
+    <ClInclude Include="Customer.h" />
+    <ClInclude Include="CustomerAccounts.h" />
+    <ClInclude Include="DramaMovie.h" />
+    <ClInclude Include="FileReader.h" />
+    <ClInclude Include="HashTable.hpp" />
+    <ClInclude Include="HistoryTransaction.h" />
+    <ClInclude Include="InventoryTransaction.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="ItemFactory.h" />
+    <ClInclude Include="LinkedList.hpp" />
+    <ClInclude Include="Movie.h" />
+    <ClInclude Include="ReturnTransaction.h" />
+    <ClInclude Include="Store.h" />
+    <ClInclude Include="Transaction.h" />
+    <ClInclude Include="TransactionFactory.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="343_Lab4_Main.cpp" />
+    <ClCompile Include="bintree.cpp" />
+    <ClCompile Include="BorrowTransaction.cpp" />
+    <ClCompile Include="ClassicMovie.cpp" />
+    <ClCompile Include="ComedyMovie.cpp" />
+    <ClCompile Include="Customer.cpp" />
+    <ClCompile Include="CustomerAccounts.cpp" />
+    <ClCompile Include="DramaMovie.cpp" />
+    <ClCompile Include="FileReader.cpp" />
+    <ClCompile Include="HistoryTransaction.cpp" />
+    <ClCompile Include="InventoryTransaction.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="ItemFactory.cpp" />
+    <ClCompile Include="Movie.cpp" />
+    <ClCompile Include="ReturnTransaction.cpp" />
+    <ClCompile Include="Store.cpp" />
+    <ClCompile Include="Transaction.cpp" />
+    <ClCompile Include="TransactionFactory.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\..\..\OneDrive\UWB\CSS 343\Lab4\Project1\data4commands.txt" />
+    <Text Include="..\..\..\..\..\OneDrive\UWB\CSS 343\Lab4\Project1\data4customers.txt" />
+    <Text Include="..\..\..\..\..\OneDrive\UWB\CSS 343\Lab4\Project1\data4movies.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

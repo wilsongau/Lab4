@@ -46,6 +46,7 @@ public:
 	string getHashString() const;
 
 	bool addTransaction(Transaction * trans); // add transaction
+	bool returnItem(const string &name); // returns an item
 
 private:
 	int id;// customer ID

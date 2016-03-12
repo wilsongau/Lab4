@@ -11,7 +11,7 @@
 
 #include "Movie.h"
 class DramaMovie :
-	public Movie
+	public Movie, public Item
 {
 	//overloads for printing or entering a Drama movie 
 	friend ostream& operator<<(ostream &out, const DramaMovie &movie);
@@ -19,7 +19,6 @@ class DramaMovie :
 public:
 	DramaMovie();
 	~DramaMovie();
-
-	//used for when the data4movies file specifies what type of movie to store
-	char identifier = 'D';
+	DramaMovie(int stock, const string &dir, const string &name,
+		int year, const string & type);
 };
