@@ -57,6 +57,7 @@
     <ClInclude Include="Store.h" />
     <ClInclude Include="Transaction.h" />
     <ClInclude Include="TransactionFactory.h" />
+    <ClInclude Include="TransactionManager.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D3B06626-B195-4F79-A92F-A4EACF1E2A42}</ProjectGuid>

@@ -9,6 +9,10 @@ ReturnTransaction::ReturnTransaction()
 
 }
 
+ReturnTransaction::ReturnTransaction(const string & cmd)
+{
+}
+
 ReturnTransaction::~ReturnTransaction()
 {
 }

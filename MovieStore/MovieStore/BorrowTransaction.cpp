@@ -4,6 +4,10 @@ BorrowTransaction::BorrowTransaction()
 {
 }
 
+BorrowTransaction::BorrowTransaction(const string & cmd)
+{
+}
+
 BorrowTransaction::~BorrowTransaction()
 {
 }

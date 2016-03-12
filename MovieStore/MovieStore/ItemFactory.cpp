@@ -6,5 +6,25 @@
 // ----------------------------------------------------------------------------
 Item *& ItemFactory::MakeItem(string command)
 {
-	// TODO: insert return statement here
+	const static string MOVIE_COMEDY = "F";
+	const static string MOVIE_CLASSIC = "C";
+	const static string MOVIE_DRAMA = "D";
+	Item *item = NULL;
+	if (command == MOVIE_COMEDY)
+	{
+		item = new ComedyMovie(command);
+	}
+	else if (command == MOVIE_CLASSIC)
+	{
+		item = new ClassicMovie(command);
+	}
+	else if (command == MOVIE_DRAMA)
+	{
+		item = new DramaMovie(command);
+	}
+	else
+	{
+		cerr << "Invalid Item Creation Command: " << command << endl;
+	}
+	return item;
 }
