@@ -24,7 +24,7 @@ public:
 	Item(const string &cmd);
 	Item(char id, int stock, const string &name);
 	~Item();
-
+	Item& operator=(const Item &);
 	//will be overridden by children classes to be handled 
 	//differently based on genre
 	bool Borrow(HashTable<Item> *inventory);

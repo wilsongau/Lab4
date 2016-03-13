@@ -44,6 +44,11 @@ Item::~Item()
 {
 }
 
+Item & Item::operator=(const Item &)
+{
+	// TODO: insert return statement here
+}
+
 // ----------------------------------------------------------------------------
 //	Borrow(HashTable<Item>*)
 //  Reduce the stock if available, then return true. Will be overridden by 
