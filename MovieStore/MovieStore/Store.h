@@ -12,10 +12,16 @@
 #include "HashTable.hpp"
 #include "Item.h"
 #include "CustomerAccounts.h"
-
+#include "ItemFactory.h"
+#include "bintree.hpp"
+#include "TransactionFactory.h"
+#include "TransactionManager.h"
+const static string ITEM_IDENTIFIERS[] = { "F", "C", "D" };
+const static string TRANSACTION_IDENTIFIERS[] = { "H", "B", "R", "I" };
 class Store
 {
 public:
+	
 	Store();
 	~Store();
 
@@ -23,6 +29,9 @@ public:
 	//	route transactions to TransactionFactory, and items to ItemFactory 
 	bool ReadAction(const string &action);
 private:
-	HashTable<Item>* inventory; // Hash table of items
-	CustomerAccounts* accounts; // Wrapper object for Customers
+	BinTree<Item> inventory; // Hash table of items
+	CustomerAccounts accounts; // Wrapper object for Customers
+	ItemFactory itemFactory;
+	TransactionFactory transactionFactory;
+	TransactionManager transactionManager;
 };
