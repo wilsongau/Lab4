@@ -49,12 +49,46 @@ Item & Item::operator=(const Item &)
 	// TODO: insert return statement here
 }
 
+bool Item::operator==(const Item &compare) const
+{
+	if (this->name == compare.name)
+	{
+		return true;
+	}
+	return false;
+}
+
+bool Item::operator!=(const Item &compare) const
+{
+	return !operator==(compare);
+}
+
+bool Item::operator<(const Item &) const
+{
+	return false;
+}
+
+bool Item::operator<=(const Item &) const
+{
+	return false;
+}
+
+bool Item::operator>(const Item &) const
+{
+	return false;
+}
+
+bool Item::operator>=(const Item &) const
+{
+	return false;
+}
+
 // ----------------------------------------------------------------------------
 //	Borrow(HashTable<Item>*)
 //  Reduce the stock if available, then return true. Will be overridden by 
 //  children classes possibly handled  differently based on genre
 // ----------------------------------------------------------------------------
-bool Item::Borrow(HashTable<Item>* inventory)
+bool Item::Borrow(BorrowTransaction &t)
 {
 	if(stock <= 0)
 	{ 

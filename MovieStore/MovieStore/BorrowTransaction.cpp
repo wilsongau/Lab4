@@ -1,28 +1,21 @@
 #include "BorrowTransaction.h"
 
-BorrowTransaction::BorrowTransaction()
-{
-}
 
-BorrowTransaction::BorrowTransaction(const string & cmd)
-{
-}
 
-BorrowTransaction::~BorrowTransaction()
-{
-}
-
-int BorrowTransaction::getCustomerId() const
-{
-		return 0;
-}
-#include "BorrowTransaction.h"
 
 // ----------------------------------------------------------------------------
 //	constructor
 //  default constructor for class BorrowTransaction
 // ----------------------------------------------------------------------------
 BorrowTransaction::BorrowTransaction()
+{
+}
+
+// ----------------------------------------------------------------------------
+//	constructor
+//  string constructor for class BorrowTransaction
+// ----------------------------------------------------------------------------
+BorrowTransaction::BorrowTransaction(const string & cmd)
 {
 }
 
@@ -74,6 +67,16 @@ string BorrowTransaction::getItemData() const
 
 
 // ----------------------------------------------------------------------------
+//	setItemData()
+//  set the item's data
+// ----------------------------------------------------------------------------
+void BorrowTransaction::setItemData(const string &data)
+{
+	itemData = data;
+}
+
+
+// ----------------------------------------------------------------------------
 //	getCheckedOut()
 //  return true if transaction is currently on loan
 // ----------------------------------------------------------------------------
@@ -90,14 +93,3 @@ bool BorrowTransaction::getCheckedOut() const
 void BorrowTransaction::setCheckedOut(bool value)
 {
 }
-
-
-// ----------------------------------------------------------------------------
-//	findItem(HashTable<Item>*)
-//  gets the item
-// ----------------------------------------------------------------------------
-bool BorrowTransaction::findItem(HashTable<Item>* inventory) const
-{
-	return false;
-}
-
