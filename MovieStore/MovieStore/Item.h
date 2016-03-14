@@ -10,7 +10,6 @@
 
 #include <string>
 #include <iostream>
-#include "BorrowTransaction.h"
 #include "HashTable.hpp"
 #include "Customer.h"
 using namespace std;
@@ -26,15 +25,9 @@ public:
 	Item(char id, int stock, const string &name);
 	~Item();
 	Item& operator=(const Item &);
-	bool operator==(const Item &) const;
-	bool operator!=(const Item &) const;
-	bool operator<(const Item &) const;
-	bool operator<=(const Item &) const;
-	bool operator>(const Item &) const;
-	bool operator>=(const Item &) const;
 	//will be overridden by children classes to be handled 
 	//differently based on genre
-	bool Borrow(BorrowTransaction &t);
+	bool Borrow(HashTable<Item> *inventory);
 	/*	PSEUDO CODE
 
 		if stock > 0
@@ -71,10 +64,9 @@ public:
 	void setStock(int);
 
 	string getName() const;
-
 	void setName(const string &);
 
-protected:
+private:
 	//the amount of an item that the store contains
 	int stock;
 

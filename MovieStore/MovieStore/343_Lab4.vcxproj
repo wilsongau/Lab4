@@ -36,7 +36,6 @@
     <ClCompile Include="Store.cpp" />
     <ClCompile Include="Transaction.cpp" />
     <ClCompile Include="TransactionFactory.cpp" />
-    <ClCompile Include="TransactionManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bintree.hpp" />

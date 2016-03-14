@@ -18,5 +18,5 @@ using namespace std;
 static class ItemFactory
 {
 public:
-	static Item*& MakeItem(string command, BinTree<Item> &inventory);
+	static Item*& MakeItem(string command);
 };
