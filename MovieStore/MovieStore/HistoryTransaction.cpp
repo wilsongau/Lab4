@@ -25,3 +25,8 @@ int HistoryTransaction::getCustomerId() const
 {
 	return customerId;
 }
+
+HistoryTransaction & HistoryTransaction::operator=(const HistoryTransaction & t)
+{
+	// TODO: insert return statement here
+}

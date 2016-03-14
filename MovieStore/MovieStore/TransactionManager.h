@@ -27,15 +27,15 @@ public:
 		BinTree<Item> &items);  // switch selection for transaction type
 private:
 	// print transaction history for a particular account
-	bool History(const HistoryTransaction &t, 
+	bool History(HistoryTransaction *t, 
 		const CustomerAccounts &accounts);
 
 	// borrow an item from the store
-	bool Borrow(BorrowTransaction &t, BinTree<Item> &inventory, 
+	bool Borrow(BorrowTransaction *t, BinTree<Item> &inventory, 
 		CustomerAccounts &accounts);
 
 	// return an item to the store
-	bool Return(ReturnTransaction &t, BinTree<Item> &inventory, 
+	bool Return(ReturnTransaction *t, BinTree<Item> &inventory, 
 		CustomerAccounts &accounts);
 };
 

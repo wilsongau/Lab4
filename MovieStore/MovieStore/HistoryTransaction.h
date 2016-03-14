@@ -24,6 +24,7 @@ public:
 	HistoryTransaction(const string &cmd); // string constructor
 	~HistoryTransaction(); // deconstructor
 	int getCustomerId() const; // gets the customer's id number 
+	HistoryTransaction& operator=(const HistoryTransaction &t);
 private:
 	char identifier = 'H';
 	int customerId;

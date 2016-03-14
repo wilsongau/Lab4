@@ -11,6 +11,9 @@
 // ---------------------------------------------------------------------------
 
 #include "Movie.h"
+#include "bintree.hpp"
+#include <list>
+#include <algorithm>
 class ClassicMovie :
 	public Movie, public Item
 {
@@ -20,9 +23,9 @@ class ClassicMovie :
 
 public:
 	ClassicMovie();
-	ClassicMovie(const string &cmd);
+	ClassicMovie(const string &cmd, BinTree<Item> &inventory);
 	ClassicMovie(int stock, const string &director, const string &title,
-		const string &star, int month, int year, const string &type);
+		const string &star, int month, int year, const string &type, BinTree<Item> &inventory);
 	~ClassicMovie();
 
 	//returns the starring actor associated with this instance of a Classic movie
@@ -30,10 +33,21 @@ public:
 
 	//returns the month that the movie was released
 	int getReleaseMonth() const;
+	
+	// finds a related ClassicMovie with the listed starring actor
+	bool findRelated(BinTree<Item> & inventory);
+	void addRelated(ClassicMovie * movie);
+ 
+	bool Borrow(BorrowTransaction &t);
+	void printAll() const;
 private:
 	//staring actor for this instance of a Classic movie
 	string starringActor;
 
 	//the month that the movie was released
 	int releaseMonth;
+
+	// list of related ClassicMovies
+	list<ClassicMovie*> * related = NULL;
+
 };
