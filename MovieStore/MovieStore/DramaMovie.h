@@ -8,7 +8,8 @@
 // Header file for the DramaMovie Class.  Contains data and stock information
 // for movies with the 'D' identifier. 
 // ---------------------------------------------------------------------------
-
+#ifndef DRAMA_HEADER
+#define DRAMA_HEADER
 #include "Movie.h"
 class DramaMovie :
 	public Movie, public Item
@@ -23,3 +24,4 @@ public:
 	DramaMovie(int stock, const string &dir, const string &name,
 		int year, const string & type);
 };
+#endif

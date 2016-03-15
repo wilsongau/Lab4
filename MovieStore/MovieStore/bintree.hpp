@@ -56,6 +56,7 @@ public:
 	//Functions used to modify BST
 	bool insert(T*); //function to insert T* to tree
 	bool retrieve(const T &, T* &) const; //function to get the T* of a given object in the tree 
+	bool retrieve(const string &, T* &) const; //function to get the T* of a given object in the tree 
 	int getHeight(const T &) const; // function to find the height of a given value in the tree
 	bool isEmpty() const; // true if tree is empty, otherwise false
 	void makeEmpty(); // make the tree empty   
@@ -409,6 +410,17 @@ bool BinTree<T>::retrieve(const T &target, T *&result) const
 	}
 
 	return retrieveHelper(root, target, result);
+}
+
+
+// ----------------------------------------------------------------------------
+//	retrieve
+//  retrieve specific T within the tree
+// ----------------------------------------------------------------------------
+template<typename T>
+inline bool BinTree<T>::retrieve(const string &, T *&) const
+{
+	return false;
 }
 
 // ----------------------------------------------------------------------------

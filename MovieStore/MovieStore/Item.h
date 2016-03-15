@@ -7,9 +7,11 @@
 // Header file for the Item Class.  Contains the stock quantity, Item type
 // identifier, release year, and title of an item.
 // ---------------------------------------------------------------------------
-
+#ifndef ITEM_HEADER
+#define ITEM_HEADER
 #include <string>
 #include <iostream>
+#include "BorrowTransaction.h"
 #include "HashTable.hpp"
 #include "Customer.h"
 using namespace std;
@@ -25,9 +27,15 @@ public:
 	Item(char id, int stock, const string &name);
 	~Item();
 	Item& operator=(const Item &);
+	bool operator==(const Item &) const;
+	bool operator!=(const Item &) const;
+	bool operator<(const Item &) const;
+	bool operator<=(const Item &) const;
+	bool operator>(const Item &) const;
+	bool operator>=(const Item &) const;
 	//will be overridden by children classes to be handled 
 	//differently based on genre
-	bool Borrow(HashTable<Item> *inventory);
+	bool Borrow(BorrowTransaction &t);
 	/*	PSEUDO CODE
 
 		if stock > 0
@@ -64,9 +72,10 @@ public:
 	void setStock(int);
 
 	string getName() const;
+
 	void setName(const string &);
 
-private:
+protected:
 	//the amount of an item that the store contains
 	int stock;
 
@@ -77,3 +86,4 @@ private:
 	string name;
 };
 
+#endif

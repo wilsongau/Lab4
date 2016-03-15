@@ -9,7 +9,8 @@
 // HashTable<Customer> wrapper which checks for duplicate accounts when
 // a new account is inserted.
 // ---------------------------------------------------------------------------
-
+#ifndef ACCOUNTS_HEADER
+#define ACCOUNTS_HEADER
 #include "HashTable.hpp"
 #include "Customer.h"
 class CustomerAccounts
@@ -32,3 +33,5 @@ private:
 	//	will be called internally in the insert function
 	bool checkForDuplicates(const Customer &account) const;
 };
+
+#endif

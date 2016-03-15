@@ -9,38 +9,14 @@ ReturnTransaction::ReturnTransaction()
 
 }
 
+// ----------------------------------------------------------------------------
+//	constructor
+//  string constructor for class CustomerAccounts
+// ----------------------------------------------------------------------------
 ReturnTransaction::ReturnTransaction(const string & cmd)
 {
 }
 
-ReturnTransaction::~ReturnTransaction()
-{
-}
-
-int ReturnTransaction::getCustomerId() const
-{
-	return customerId;
-}
-
-char ReturnTransaction::getMediaType() const
-{
-	return mediaType;
-}
-
-char ReturnTransaction::getItemType() const
-{
-	return itemType;
-}
-
-string ReturnTransaction::getItemData() const
-{
-	return itemData;
-}
-
-bool ReturnTransaction::findItem(HashTable<Item>* inventory) const
-{
-	return false;
-}
 
 // ----------------------------------------------------------------------------
 //	destructor

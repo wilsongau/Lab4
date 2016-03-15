@@ -36,7 +36,7 @@ bool Store::ReadAction(const string & action)
 		if (id == ITEM_IDENTIFIERS[i])
 		{
 			Item *newItem = NULL;
-			newItem = itemFactory.MakeItem(action);
+			newItem = itemFactory.MakeItem(action, inventory);
 			if (newItem != NULL)
 			{
 				inventory.insert(newItem);
@@ -52,8 +52,8 @@ bool Store::ReadAction(const string & action)
 			newTransaction = transactionFactory.MakeTransaction(action);
 			if (newTransaction != NULL)
 			{
-				transactionManager.performTransaction(newTransaction, accounts, inventory);
-				return true;
+				return transactionManager.performTransaction(newTransaction, 
+					accounts, inventory);
 			}
 		}
 	}
