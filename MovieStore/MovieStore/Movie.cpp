@@ -59,3 +59,14 @@ string Movie::getType() const
 {
 	return type;
 }
+
+
+// ----------------------------------------------------------------------------
+//	operator<<
+//  output stream operator
+// ----------------------------------------------------------------------------
+ostream& operator<<(ostream &out, const Movie &movie)
+{
+	out << movie.director << ", " << movie.name << ", " << movie.releaseYear;
+	return out;
+}

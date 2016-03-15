@@ -80,7 +80,7 @@ private:
 	Node *root; // root of the tree
 
 	// helper functions
-	void display(Node*, ostream &) const; //Displays BST inorder
+	ostream& display(Node*, ostream &) const; //Displays BST inorder
 	bool retrieveHelper(const Node *, const T &, T *&) const; //Retrieve helper
 	void makeEmptyHelper(Node *&); //Delete all tree from the given Node
 	int getHeightHelper(const T &, Node*) const; //Helper function for getHeight
@@ -108,7 +108,7 @@ ostream &operator<<(ostream &sout, const BinTree<T> &tree)
 //  helper function to output operator for in order display
 // ----------------------------------------------------------------------------
 template <typename T>
-void BinTree<T>::display(Node* pCurrentNode, ostream &sout) const
+ostream& BinTree<T>::display(Node* pCurrentNode, ostream &sout) const
 {
 	if (pCurrentNode != NULL)  // traverse and print data
 	{
@@ -116,6 +116,7 @@ void BinTree<T>::display(Node* pCurrentNode, ostream &sout) const
 		sout << *pCurrentNode->data << " ";
 		display(pCurrentNode->right, sout);
 	}
+	return sout;
 }
 
 // ----------------------------------------------------------------------------

@@ -38,9 +38,26 @@ ClassicMovie::~ClassicMovie()
 {
 }
 
+// ----------------------------------------------------------------------------
+//	operator<<
+//  output stream operator
+// ----------------------------------------------------------------------------
+ostream& operator<<(ostream &out, const ClassicMovie &movie)
+{
+	out << movie.director << ", " << movie.name << ", " << movie.starringActor 
+		<< ", " << movie.releaseMonth << "/" << movie.releaseYear;
+	return out;
+}
+
+// ----------------------------------------------------------------------------
+//	findRelated
+//  finds ClassicMovies in the store's inventory that have the same title, 
+//  and release date
+// ----------------------------------------------------------------------------
 bool ClassicMovie::findRelated(BinTree<Item> & inventory)
 {
-	string itemData = to_string(releaseMonth + getReleaseYear()) + starringActor;
+	string itemData = to_string(releaseMonth + getReleaseYear()) + 
+		starringActor;
 	Item *item;
 	inventory.retrieve(itemData, item);
 	if (item == NULL)
@@ -48,6 +65,7 @@ bool ClassicMovie::findRelated(BinTree<Item> & inventory)
 		return false;
 	}
 	((ClassicMovie*)&item)->addRelated(this);
+	return true;
 }
 
 // ----------------------------------------------------------------------------

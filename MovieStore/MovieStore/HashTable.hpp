@@ -10,8 +10,9 @@
 // ---------------------------------------------------------------------------
 #ifndef HASH_TABLE_H
 #define HASH_TABLE_H
-#include "LinkedList.hpp"
+//#include "LinkedList.hpp"
 #include <string>
+#include <list>
 using namespace std;
 
 const int HASH_VALUE = 100;
@@ -23,11 +24,15 @@ public:
 	HashTable(); //default constructor
 	~HashTable(); //destructor
 
-	bool get(const string &hashString, const T target, T &result) const; //Retrieving an element from the hash table
-	bool Insert(T *item, const string &hashstring); //Insert element at the hash table
+	//Retrieves an element from the hash table
+	bool get(const string &hashString, const T target, T &result) const; 
+
+	//Insert element at the hash table
+	bool Insert(T *item, const string &hashstring); 
 private:
-	int hash(const string &hashString) const; //hash function to determine where to insert the data at hash table
-	List342<T> *hashTable; //hash table
+	//hash function to determine where to insert the data at hash table
+	int hash(const string &hashString) const;
+	list<T> *hashTable[HASH_VALUE]; //hash table
 };
 
 // ----------------------------------------------------------------------------
@@ -37,8 +42,6 @@ private:
 template <class T>
 HashTable<T>::HashTable()
 {
-	//initialize hashTable size to HASH_VALUE
-	hashTable = new List342<T>[HASH_VALUE];
 }
 
 // ----------------------------------------------------------------------------
@@ -48,11 +51,13 @@ HashTable<T>::HashTable()
 template <class T>
 HashTable<T>::~HashTable()
 {
+	list<T> *temp = NULL;
 	for (int i = 0; i < HASH_VALUE; i++)
 	{
-		hashTable[i].deleteList();
+		temp = hashTable[i];
+		temp->clear();
+		delete temp;
 	}
-	delete[] hashTable;
 }
 
 // ----------------------------------------------------------------------------

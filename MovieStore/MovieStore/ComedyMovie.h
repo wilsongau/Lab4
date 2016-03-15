@@ -11,11 +11,10 @@
 
 #include "Movie.h"
 class ComedyMovie :
-	public Movie, public Item
+	public Movie
 {
 	//overloads for printing or entering a Comedy movie 
 	friend ostream& operator<<(ostream &out, const ComedyMovie &movie);
-	friend istream& operator>>(istream &out, ComedyMovie &movie);
 public:
 	ComedyMovie();
 	ComedyMovie(const string &cmd);

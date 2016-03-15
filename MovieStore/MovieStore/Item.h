@@ -19,7 +19,6 @@ class Item
 {
 	//overloads for printing or entering an item 
 	friend ostream& operator<<(ostream &out, const Item &item);
-	friend istream& operator>>(istream &out, Item &item);
 
 public:
 	Item();

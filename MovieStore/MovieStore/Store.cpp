@@ -58,4 +58,5 @@ bool Store::ReadAction(const string & action)
 		}
 	}
 	cerr << "Invalid Command: " << action << endl;
+	return false;
 }

@@ -16,11 +16,10 @@
 #include "Item.h"
 using namespace std;
 
-class Movie
+class Movie : public Item
 {
 	//overloads for printing or entering a movie 
 	friend ostream& operator<<(ostream &out, const Movie &movie);
-	friend istream& operator>>(istream &out, Movie &movie);
 
 public:
 	Movie();
@@ -37,7 +36,7 @@ public:
 	//returns the type of the movie
 	string getType() const;
 
-private:
+protected:
 	//the director of the movie
 	string director;
 

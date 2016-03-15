@@ -82,7 +82,7 @@ void BorrowTransaction::setItemData(const string &data)
 // ----------------------------------------------------------------------------
 bool BorrowTransaction::getCheckedOut() const
 {
-	return false;
+	return checkedOut;
 }
 
 
@@ -92,4 +92,5 @@ bool BorrowTransaction::getCheckedOut() const
 // ----------------------------------------------------------------------------
 void BorrowTransaction::setCheckedOut(bool value)
 {
+	checkedOut = value;
 }

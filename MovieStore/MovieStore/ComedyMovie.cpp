@@ -8,6 +8,7 @@ ComedyMovie::ComedyMovie()
 {
 	Movie('D', 0, "", "", 0, ""); //empty ComedyMovie
 }
+
 ComedyMovie::ComedyMovie(const string & cmd)
 {
 }
@@ -27,4 +28,15 @@ ComedyMovie::ComedyMovie(int stock, const string & dir, const string & name,
 // ----------------------------------------------------------------------------
 ComedyMovie::~ComedyMovie()
 {
+}
+
+
+// ----------------------------------------------------------------------------
+//	operator<<
+//  output stream operator
+// ----------------------------------------------------------------------------
+ostream& operator<<(ostream &out, const ComedyMovie &movie)
+{
+	out << movie.director << ", " << movie.name << ", " << movie.releaseYear;
+	return out;
 }

@@ -5,14 +5,10 @@
 //  overload operator<<
 // ----------------------------------------------------------------------------
 ostream& operator<<(ostream &out, const Item &item) 
-{}
-
-// ----------------------------------------------------------------------------
-//	operator overload
-//  overload operator>>
-// ----------------------------------------------------------------------------
-istream& operator>>(istream &out, Item &item) 
-{}
+{
+	out << item.name << ": " << item.stock;
+	return out;
+}
 
 // ----------------------------------------------------------------------------
 //	constructor
@@ -23,6 +19,10 @@ Item::Item()
 	stock = 0;
 	identifier = 'I';
 	name = "";
+}
+
+Item::Item(const string & cmd)
+{
 }
 
 // ----------------------------------------------------------------------------
@@ -46,7 +46,7 @@ Item::~Item()
 
 Item & Item::operator=(const Item &)
 {
-	// TODO: insert return statement here
+	return *this;
 }
 
 bool Item::operator==(const Item &compare) const

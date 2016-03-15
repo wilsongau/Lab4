@@ -14,11 +14,10 @@
 #include "bintree.hpp"
 #include <list>
 class ClassicMovie :
-	public Movie, public Item
+	public Movie
 {
 	//overloads for printing or entering a Classic movie 
 	friend ostream& operator<<(ostream &out, const ClassicMovie &movie);
-	friend istream& operator>>(istream &out, ClassicMovie &movie);
 
 public:
 	ClassicMovie();

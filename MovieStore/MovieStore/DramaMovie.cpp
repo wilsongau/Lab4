@@ -26,3 +26,14 @@ DramaMovie::DramaMovie(int stock, const string & dir, const string & name,
 {
 	Movie('D', stock, dir, name, year, type);
 }
+
+
+// ----------------------------------------------------------------------------
+//	operator<<
+//  output stream operator
+// ----------------------------------------------------------------------------
+ostream& operator<<(ostream &out, const DramaMovie &movie)
+{
+	out << movie.director << ", " << movie.name << ", " << movie.releaseYear;
+	return out;
+}

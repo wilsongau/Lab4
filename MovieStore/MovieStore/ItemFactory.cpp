@@ -4,7 +4,7 @@
 //	MakeItem(string)
 //  Create Item
 // ----------------------------------------------------------------------------
-Item *& ItemFactory::MakeItem(string command, BinTree<Item> &inventory)
+Item * ItemFactory::MakeItem(string command, BinTree<Item> &inventory)
 {
 	Item *item = NULL;
 	if (command == MOVIE_COMEDY)

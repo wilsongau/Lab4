@@ -12,11 +12,10 @@
 #define DRAMA_HEADER
 #include "Movie.h"
 class DramaMovie :
-	public Movie, public Item
+	public Movie
 {
 	//overloads for printing or entering a Drama movie 
 	friend ostream& operator<<(ostream &out, const DramaMovie &movie);
-	friend istream& operator>>(istream &out, DramaMovie &movie);
 public:
 	DramaMovie();
 	~DramaMovie();
