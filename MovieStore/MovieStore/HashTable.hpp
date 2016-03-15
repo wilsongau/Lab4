@@ -52,7 +52,10 @@ HashTable<T>::HashTable()
 template <class T>
 HashTable<T>::~HashTable()
 {
-
+	for (int i = 0; i < HASH_VALUE; i++)
+	{
+		hashTable[i].clear();
+	}
 }
 
 // ----------------------------------------------------------------------------
@@ -60,11 +63,19 @@ HashTable<T>::~HashTable()
 //  Retrieving an element from the hash table
 // ----------------------------------------------------------------------------
 template<class T>
-bool HashTable<T>::get(const string & hashString, const T target, T & result) const
+bool HashTable<T>::get(const string & hashString, const T target, T & result) const //why do we have target and result? would they be the same?
 {
 	//return retrieve function at LinkedList class at hashTable[hash(hashString)]
 	int index = hash(hashString);
-	return hashTable[index].Peek(target, result);
+	return hashTable[index].Peek(target, result); //WE DON'T HAVE PEEK ANYMORE, since you use STD library list
+	//I am not sure if this is the correct way to do this
+	list<T>::iterator iter = find(hashTable[index].begin(), hashTable[index], target);
+	if (iter == target)
+	{
+		result = target;
+		return true;
+	}
+	return false;
 }
 
 // ----------------------------------------------------------------------------
@@ -76,7 +87,8 @@ bool HashTable<T>::Insert(T * item, const string & hashstring)
 {
 	//call insert function from LinkedList class at hashTable[hash(hashString)]
 	int index = hash(hashstring);
-	hashTable[index].Insert(item);
+	//hashTable[index].Insert(item);    //since we use STD library, shouldn't we use push_back from list??
+	hashTable[index].push_back(item);
 }
 
 // ----------------------------------------------------------------------------
