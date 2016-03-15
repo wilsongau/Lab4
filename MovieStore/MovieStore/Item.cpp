@@ -44,14 +44,19 @@ Item::~Item()
 {
 }
 
-Item & Item::operator=(const Item &)
+Item & Item::operator=(const Item & other)
 {
+	stock = other.getStock();
+	identifier = other.getIdentifier();
+	name = other.getName();
 	return *this;
 }
 
 bool Item::operator==(const Item &compare) const
 {
-	if (this->name == compare.name)
+	if (this->name == compare.getName() && 
+		this->stock == compare.getStock() && 
+		this->identifier == compare.getIdentifier())
 	{
 		return true;
 	}
@@ -63,24 +68,58 @@ bool Item::operator!=(const Item &compare) const
 	return !operator==(compare);
 }
 
-bool Item::operator<(const Item &) const
+bool Item::operator<(const Item & other) const
 {
+	if (this->identifier < other.getIdentifier())
+	{
+		return true;
+	}
+	if (this->identifier == other.getIdentifier() &&
+		this->name < other.getName())
+
+	{
+		return true;
+	}
+	if (this->identifier == other.getIdentifier() &&
+		this->name == other.getName() &&
+		this->stock < other.getStock())
+
+	{
+		return true;
+	}
 	return false;
 }
 
-bool Item::operator<=(const Item &) const
+bool Item::operator<=(const Item &other) const
 {
+	return !operator>(other);
+}
+
+bool Item::operator>(const Item &other) const
+{
+	if (this->identifier > other.getIdentifier())
+	{
+		return true;
+	}
+	if (this->identifier == other.getIdentifier() &&
+		this->name > other.getName())
+
+	{
+		return true;
+	}
+	if (this->identifier == other.getIdentifier() &&
+		this->name == other.getName() &&
+		this->stock > other.getStock())
+
+	{
+		return true;
+	}
 	return false;
 }
 
-bool Item::operator>(const Item &) const
+bool Item::operator>=(const Item &other) const
 {
-	return false;
-}
-
-bool Item::operator>=(const Item &) const
-{
-	return false;
+	return !operator<(other);
 }
 
 // ----------------------------------------------------------------------------
