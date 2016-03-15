@@ -8,6 +8,10 @@ HistoryTransaction::HistoryTransaction()
 {
 }
 
+HistoryTransaction::HistoryTransaction(const string & cmd)
+{
+}
+
 // ----------------------------------------------------------------------------
 //	destructor
 //  default destructor for class HistoryTransaction

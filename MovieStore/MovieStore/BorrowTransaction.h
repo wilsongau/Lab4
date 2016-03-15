@@ -20,9 +20,6 @@ class BorrowTransaction : public Transaction
 	// output stream override
 	friend ostream& operator<<(ostream &out,
 		const BorrowTransaction &transaction);
-
-	// input stream override
-	friend istream& operator>>(istream &in, BorrowTransaction &transaction);
 public:
 	BorrowTransaction(); // default constructor
 	BorrowTransaction(const string &cmd); // string constructor

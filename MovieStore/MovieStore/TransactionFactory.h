@@ -17,5 +17,5 @@
 class TransactionFactory
 {
 public:
-	Transaction*& MakeTransaction(string command);
+	Transaction* MakeTransaction(string command);
 };

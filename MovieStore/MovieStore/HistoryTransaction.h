@@ -18,9 +18,6 @@ class HistoryTransaction : public Transaction
 	// output steam override
 	friend ostream& operator<<(ostream &out,
 		const HistoryTransaction &transaction);
-
-	// input stream override
-	friend istream& operator>>(istream &in, HistoryTransaction &transaction);
 public:
 	HistoryTransaction(); // default constructor
 	HistoryTransaction(const string &cmd); // string constructor

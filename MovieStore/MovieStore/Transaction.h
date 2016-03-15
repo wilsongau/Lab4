@@ -15,8 +15,6 @@
 using namespace std;
 class Transaction
 {
-	friend ostream& operator<<(ostream &out, const Transaction &transaction);
-	friend istream& operator>>(istream &in, Transaction &transaction);
 public:
 	Transaction(); //default constructor
 	Transaction(const string &cmd);

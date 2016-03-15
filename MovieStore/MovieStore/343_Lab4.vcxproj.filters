@@ -132,4 +132,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="data4movies.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="data4commands.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="data4customers.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

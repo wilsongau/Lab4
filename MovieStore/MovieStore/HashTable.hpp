@@ -32,7 +32,7 @@ public:
 private:
 	//hash function to determine where to insert the data at hash table
 	int hash(const string &hashString) const;
-	list<T> *hashTable[HASH_VALUE]; //hash table
+	list<T> *hashTable; //hash table
 };
 
 // ----------------------------------------------------------------------------
@@ -42,6 +42,7 @@ private:
 template <class T>
 HashTable<T>::HashTable()
 {
+	hashTable = new list<T>[HASH_VALUE];
 }
 
 // ----------------------------------------------------------------------------
@@ -51,11 +52,12 @@ HashTable<T>::HashTable()
 template <class T>
 HashTable<T>::~HashTable()
 {
-	list<T> *temp = NULL;
+	list<T> *bucket = hashTable;
 	for (int i = 0; i < HASH_VALUE; i++)
 	{
-		temp = hashTable[i];
-		temp->clear();
+		list<T> *temp = bucket;
+		bucket->clear();
+		bucket++;
 		delete temp;
 	}
 }

@@ -6,7 +6,8 @@
 // ---------------------------------------------------------------------------
 // contains main() for the Movie Store application.
 // ---------------------------------------------------------------------------
-
+#ifndef LAB4_MAIN
+#define LAB4_MAIN
 #include "Store.h"
 #include "FileReader.h"
 using namespace std;
@@ -30,3 +31,4 @@ int main()
 
 	return 0;
 }
+#endif

@@ -4,7 +4,7 @@
 //	MakeTransaction(string)
 //  Create Transaction
 // ----------------------------------------------------------------------------
-Transaction *& TransactionFactory::MakeTransaction(string command)
+Transaction * TransactionFactory::MakeTransaction(string command)
 {
 	Transaction *t = NULL;
 	const static string HISTORY = "H";

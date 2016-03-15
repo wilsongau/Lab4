@@ -94,3 +94,17 @@ void BorrowTransaction::setCheckedOut(bool value)
 {
 	checkedOut = value;
 }
+// ----------------------------------------------------------------------------
+//  operator<<
+//  output stream operator
+// ----------------------------------------------------------------------------
+ostream& operator<<(ostream &out, const BorrowTransaction &transaction)
+{
+	out << "customer: " << transaction.customerId << " borrowed: " 
+		<< transaction.itemData;
+	if (!transaction.checkedOut)
+	{
+		out << " NOT RETURNED";
+	}
+	return out;
+}

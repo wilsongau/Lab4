@@ -16,9 +16,6 @@ class InventoryTransaction : public Transaction
 {
 	// output stream override
 	friend ostream& operator<<(ostream &out, const InventoryTransaction &transaction);
-
-	//input stream override
-	friend istream& operator>>(istream &in, InventoryTransaction &transaction);
 public:
 	InventoryTransaction(); // default constructor
 	InventoryTransaction(const string &cmd); // string constructor

@@ -10,22 +10,14 @@
 #include "FileReader.h"
 using namespace std;
 
-int main()
+InventoryTransaction::InventoryTransaction()
 {
-	static const int inputFileCount = 3;
-	string line = "";
-	string filenames[inputFileCount] = { "data4movies.txt", "data4customers.txt",
-		"data4commands.txt" };
-	Store store;
-	FileReader reader;
-	for (unsigned int i = 0; i < inputFileCount; i++)
-	{
-		reader.setFileName(filenames[i]);
-		while (reader.getNextLine(line))
-		{
-			store.ReadAction(line);
-		}
-	}
+}
 
-	return 0;
+InventoryTransaction::InventoryTransaction(const string & cmd)
+{
+}
+
+InventoryTransaction::~InventoryTransaction()
+{
 }

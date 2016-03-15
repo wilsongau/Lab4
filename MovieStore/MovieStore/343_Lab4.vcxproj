@@ -60,6 +60,11 @@
     <ClInclude Include="TransactionFactory.h" />
     <ClInclude Include="TransactionManager.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="data4commands.txt" />
+    <Text Include="data4customers.txt" />
+    <Text Include="data4movies.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D3B06626-B195-4F79-A92F-A4EACF1E2A42}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>

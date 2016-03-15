@@ -17,6 +17,10 @@ DramaMovie::~DramaMovie()
 {
 }
 
+DramaMovie::DramaMovie(const string & cmd)
+{
+}
+
 // ----------------------------------------------------------------------------
 //	constructor
 //  overload constructor for class DranaMovie

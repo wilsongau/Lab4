@@ -15,22 +15,24 @@ bool TransactionManager::performTransaction(Transaction * t, CustomerAccounts
 	if (t->getIdentifier() == 'I')
 	{
 		cout << inventory;
+		return true;
 	}
 	else if (t->getIdentifier() == 'H')
 	{
 		HistoryTransaction * historyTransaction = (HistoryTransaction*)&t;
-		History(historyTransaction, accounts);
+		return History(historyTransaction, accounts);
 	}
 	else if (t->getIdentifier() == 'B')
 	{
 		BorrowTransaction * borrowTransaction = (BorrowTransaction*)&t;
-		Borrow(borrowTransaction, inventory, accounts);
+		return Borrow(borrowTransaction, inventory, accounts);
 	}
 	else if (t->getIdentifier() == 'R')
 	{
 		ReturnTransaction * returnTransaction = (ReturnTransaction*)&t;
-		Return(returnTransaction, inventory, accounts);
+		return Return(returnTransaction, inventory, accounts);
 	}
+	return false;
 }
 
 bool TransactionManager::History(HistoryTransaction *t, const CustomerAccounts 
@@ -59,8 +61,9 @@ bool TransactionManager::Borrow(BorrowTransaction * t, BinTree<Item>&
 	if (!inventory.retrieve(t->getItemData(), item))
 	{
 		cerr << "Could not execute Borrow transaction: " << *t << endl;
+		return false;
 	}
-
+	return true;
 }
 
 bool TransactionManager::Return(ReturnTransaction * t, BinTree<Item>&
