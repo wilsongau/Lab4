@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-#include "DramaMovie.h"
-
-DramaMovie::DramaMovie()
-{
-	Movie('D', 0, "", "", 0, ""); //empty DramaMovie
-}
-
-DramaMovie::~DramaMovie()
-{
-}
-
-DramaMovie::DramaMovie(int stock, const string & dir, const string & name, 
-	int year, const string & type)
-{
-	Movie('D', stock, dir, name, year, type);
-}
-=======
 #include "DramaMovie.h"
 
 // ----------------------------------------------------------------------------
@@ -44,4 +26,3 @@ DramaMovie::DramaMovie(int stock, const string & dir, const string & name,
 {
 	Movie('D', stock, dir, name, year, type);
 }
->>>>>>> 1fb8973f3ef4cb0ffcf74c05761a87159f1ad391

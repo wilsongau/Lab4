@@ -7,7 +7,8 @@
 // Header file for the Item Class.  Contains the stock quantity, Item type
 // identifier, release year, and title of an item.
 // ---------------------------------------------------------------------------
-
+#ifndef ITEM_HEADER
+#define ITEM_HEADER
 #include <string>
 #include <iostream>
 #include "BorrowTransaction.h"
@@ -85,3 +86,4 @@ protected:
 	string name;
 };
 
+#endif

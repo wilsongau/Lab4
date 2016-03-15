@@ -13,6 +13,8 @@
 // associate customer (customerId) has a a related Borrow transaction that is
 // currently checked out.
 // ---------------------------------------------------------------------------
+#ifndef RETURN_HEADER
+#define RETURN_HEADER
 #include "Transaction.h"
 #include "Item.h"
 #include "HashTable.hpp"
@@ -44,3 +46,4 @@ private:
 //{
 //	calls item->Return();
 //}
+#endif

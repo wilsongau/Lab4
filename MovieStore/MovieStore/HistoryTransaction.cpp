@@ -26,7 +26,17 @@ int HistoryTransaction::getCustomerId() const
 	return customerId;
 }
 
-HistoryTransaction & HistoryTransaction::operator=(const HistoryTransaction & t)
+// ----------------------------------------------------------------------------
+//	operator=
+//  assignment operator overload
+// ----------------------------------------------------------------------------
+HistoryTransaction & HistoryTransaction::operator=(const HistoryTransaction & source)
 {
-	// TODO: insert return statement here
+	HistoryTransaction *temp = this;
+	if (&source != this)
+	{
+		*this = source;
+	}
+	delete temp;
+	return *this;
 }

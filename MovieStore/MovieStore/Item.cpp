@@ -158,11 +158,6 @@ string Item::getName() const
 	return name;
 }
 
-void Item::setName(const string &n)
-{
-	name = n;
-}
-
 // ----------------------------------------------------------------------------
 //	setName(const string&)
 //  set the name of the item

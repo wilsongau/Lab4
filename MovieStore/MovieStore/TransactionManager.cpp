@@ -8,20 +8,26 @@ TransactionManager::~TransactionManager()
 {
 }
 
-bool TransactionManager::performTransaction(Transaction & t, CustomerAccounts
+bool TransactionManager::performTransaction(Transaction * t, CustomerAccounts
 	& accounts, BinTree<Item>& inventory)
 {
-	switch (t.getIdentifier())
+
+	if (t->getIdentifier() == 'I')
 	{
-	case 'I':
 		cout << inventory;
-	case 'H':
+	}
+	else if (t->getIdentifier() == 'H')
+	{
 		HistoryTransaction * historyTransaction = (HistoryTransaction*)&t;
 		History(historyTransaction, accounts);
-	case 'B':
+	}
+	else if (t->getIdentifier() == 'B')
+	{
 		BorrowTransaction * borrowTransaction = (BorrowTransaction*)&t;
 		Borrow(borrowTransaction, inventory, accounts);
-	case 'R':
+	}
+	else if (t->getIdentifier() == 'R')
+	{
 		ReturnTransaction * returnTransaction = (ReturnTransaction*)&t;
 		Return(returnTransaction, inventory, accounts);
 	}

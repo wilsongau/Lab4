@@ -12,9 +12,9 @@
 // customerId is valid.  If the transaction can be processed, this transaction
 // will be added to the customer's transaction history.
 // ---------------------------------------------------------------------------
-
+#ifndef BORROW_HEADER
+#define BORROW_HEADER
 #include "Transaction.h"
-#include "HashTable.hpp"
 class BorrowTransaction : public Transaction
 {
 	// output stream override
@@ -44,6 +44,8 @@ private:
 	bool checkedOut;
 };
 
+
+#endif
 //overriden bool Process()
 //{
 //	calls item->Borrow();

@@ -13,7 +13,6 @@
 #include "Movie.h"
 #include "bintree.hpp"
 #include <list>
-#include <algorithm>
 class ClassicMovie :
 	public Movie, public Item
 {
