@@ -8,8 +8,7 @@
 // name, and a link list containing transaction history associated with the 
 // customer's account.
 // ----------
-#ifndef CUSTOMER_HEADER
-#define CUSTOMER_HEADER
+
 #include <string>
 #include <vector>
 #include "LinkedList.hpp"
@@ -48,7 +47,7 @@ public:
 
 	bool addTransaction(Transaction * trans); // add transaction
 	bool returnItem(const string &name); // returns an item
-	bool addTransaction(const Transaction *); // add transaction
+	bool addTransaction(Transaction *); // add transaction
 
 
 	bool operator==(const Customer& ) const;
@@ -59,5 +58,3 @@ private:
 	string firstName, lastName;// string of customer first and last name
 	vector<Transaction*> transactionHistory; // vector of transcations
 };
-
-#endif

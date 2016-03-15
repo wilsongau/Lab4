@@ -9,8 +9,6 @@
 // transaction with the 'I' identifier.
 // Inherited process() will display the current inventory in the store.
 // ---------------------------------------------------------------------------
-#ifndef INVENTORY_HEADER
-#define INVENTORY_HEADER
 #include "Transaction.h"
 class InventoryTransaction : public Transaction
 {
@@ -32,4 +30,3 @@ private:
 //{
 //	calls inventory.PrintHashTable();
 //}
-#endif

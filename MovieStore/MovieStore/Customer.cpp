@@ -71,7 +71,7 @@ void Customer::printHistory() const
 	vector <string> print_array;
 	cout << endl;
 	cout << "=============================================================================" << endl;
-	cout << "Name: " << getFirstName() << " " << getLastName() << ", ID: " << getId() << endl;
+	cout << "Name: " << getFirstName() << " " << getLastName << ", ID: " << getId() << endl;
 	cout << "History:" << endl;
 
 	int size = transactionHistory.size();
@@ -107,7 +107,6 @@ void Customer::printHistory() const
 string Customer::getHashString() const
 {
 	string hs = firstName + lastName + to_string(id);
-	return hs;
 }
 
 // ----------------------------------------------------------------------------
@@ -117,12 +116,6 @@ string Customer::getHashString() const
 bool Customer::addTransaction(Transaction * trans)
 {
 	transactionHistory.push_back(trans);
-	return true;
-}
-
-bool Customer::returnItem(const string & name)
-{
-	return false;
 }
 
 // ----------------------------------------------------------------------------

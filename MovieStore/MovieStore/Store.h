@@ -8,8 +8,7 @@
 // route method calls and commands to the internal components of the
 // application.
 // ---------------------------------------------------------------------------
-#ifndef STORE_HEADER
-#define STORE_HEADER
+
 #include "HashTable.hpp"
 #include "Item.h"
 #include "CustomerAccounts.h"
@@ -36,4 +35,3 @@ private:
 	TransactionFactory transactionFactory;
 	TransactionManager transactionManager;
 };
-#endif

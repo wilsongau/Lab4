@@ -10,8 +10,6 @@
 // Inherited Process(): prints out the associated transactions with the
 // customer account with the id value of customerId.
 // ---------------------------------------------------------------------------
-#ifndef HISTORY_HEADER
-#define HISTORY_HEADER
 #include "Transaction.h"
 class HistoryTransaction : public Transaction
 {
@@ -26,7 +24,6 @@ public:
 	HistoryTransaction(const string &cmd); // string constructor
 	~HistoryTransaction(); // deconstructor
 	int getCustomerId() const; // gets the customer's id number 
-	HistoryTransaction& operator=(const HistoryTransaction &t);
 private:
 	char identifier = 'H';
 	int customerId;
@@ -36,4 +33,3 @@ private:
 //{
 //	calls customer->history.PrintList();
 //}
-#endif

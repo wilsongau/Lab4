@@ -4,20 +4,23 @@
 //	MakeItem(string)
 //  Create Item
 // ----------------------------------------------------------------------------
-Item *& ItemFactory::MakeItem(string command, BinTree<Item> &inventory)
+Item *& ItemFactory::MakeItem(string command)
 {
+	const static string MOVIE_COMEDY = "F";
+	const static string MOVIE_CLASSIC = "C";
+	const static string MOVIE_DRAMA = "D";
 	Item *item = NULL;
 	if (command == MOVIE_COMEDY)
 	{
-		item = (Item*)new ComedyMovie(command);
+		item = new ComedyMovie(command);
 	}
 	else if (command == MOVIE_CLASSIC)
 	{
-		item = (Item*)new ClassicMovie(command, inventory);
+		item = new ClassicMovie(command);
 	}
 	else if (command == MOVIE_DRAMA)
 	{
-		item = (Item*)new DramaMovie(command);
+		item = new DramaMovie(command);
 	}
 	else
 	{

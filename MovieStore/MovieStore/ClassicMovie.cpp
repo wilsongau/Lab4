@@ -1,4 +1,38 @@
+<<<<<<< HEAD
 #include "ClassicMovie.h"
+
+ClassicMovie::ClassicMovie()
+{
+	Movie('C', 0, "", "", 0, "D");
+	starringActor = "";
+	releaseMonth = 0;
+}
+
+ClassicMovie::ClassicMovie(int stock, const string & director, 
+	const string &title, const string & star, int month, int year, 
+	const string &type)
+{
+	Movie('C', stock, director, title, year, type);
+	starringActor = star;
+	releaseMonth = month;
+}
+
+ClassicMovie::~ClassicMovie()
+{
+}
+
+string ClassicMovie::getStarringActor() const
+{
+	return starringActor;
+}
+
+int ClassicMovie::getReleaseMonth() const
+{
+	return releaseMonth;
+}
+=======
+#include "ClassicMovie.h"
+
 // ----------------------------------------------------------------------------
 //	constructor
 //  default constructor for class ClassicMovie
@@ -10,24 +44,17 @@ ClassicMovie::ClassicMovie()
 	releaseMonth = 0;
 }
 
-ClassicMovie::ClassicMovie(const string & cmd, BinTree<Item> &inventory)
-{
-	findRelated(inventory);
-}
-
 // ----------------------------------------------------------------------------
 //	constructor
 //  overload constructor for class ClassicMovie
 // ----------------------------------------------------------------------------
 ClassicMovie::ClassicMovie(int stock, const string & director, 
 	const string &title, const string & star, int month, int year, 
-	const string &type, BinTree<Item> &inventory)
+	const string &type)
 {
 	Movie('C', stock, director, title, year, type);
 	starringActor = star;
 	releaseMonth = month;
-	findRelated(inventory);
-
 }
 
 // ----------------------------------------------------------------------------
@@ -37,75 +64,6 @@ ClassicMovie::ClassicMovie(int stock, const string & director,
 ClassicMovie::~ClassicMovie()
 {
 }
-
-bool ClassicMovie::findRelated(BinTree<Item> & inventory)
-{
-	string itemData = to_string(releaseMonth + getReleaseYear()) + starringActor;
-	Item *item;
-	inventory.retrieve(itemData, item);
-	if (item == NULL)
-	{
-		return false;
-	}
-	((ClassicMovie*)&item)->addRelated(this);
-}
-
-// ----------------------------------------------------------------------------
-//	Borrow
-//  Borrow's the ClassicMovie, if not in stock will check for other related 
-//  movies that are in stock
-// ----------------------------------------------------------------------------
-bool ClassicMovie::Borrow(BorrowTransaction &t)
-{
-	if (stock > 0)
-	{
-		return true;
-	}
-	else
-	{
-		list<ClassicMovie*>::iterator iterator;
-		for (iterator = related->begin(); iterator != related->end(); ++iterator)
-		{
-			if ((*iterator)->getStock() > 0)
-			{
-				string itemData = to_string((*iterator)->releaseMonth + (*iterator)->getReleaseYear()) + (*iterator)->starringActor;
-				(*iterator)->stock--;
-				t.setCheckedOut(true);
-				t.setItemData(itemData);
-				return true;
-			}
-		}
-		return false;
-	}
-}
-
-// prints all related ClassicMovies
-void ClassicMovie::printAll() const
-{
-	list<ClassicMovie*>::iterator iterator;
-	for (iterator = related->begin(); iterator != related->end(); ++iterator)
-	{
-		cout << *iterator;
-	}
-}
-
-void ClassicMovie::addRelated(ClassicMovie * movie)
-{
-	if (related == NULL)
-	{
-		related = new list<ClassicMovie*>;
-		related->push_back(this);
-		related->push_back(movie);
-		movie->related = related;
-		return;
-	}
-	else
-	{
-		related->push_back(movie);
-		movie->related = related;
-	}
-}
-
 
 // ----------------------------------------------------------------------------
 //	getStarringActor()
@@ -124,3 +82,4 @@ int ClassicMovie::getReleaseMonth() const
 {
 	return releaseMonth;
 }
+>>>>>>> 1fb8973f3ef4cb0ffcf74c05761a87159f1ad391
