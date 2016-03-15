@@ -52,14 +52,7 @@ HashTable<T>::HashTable()
 template <class T>
 HashTable<T>::~HashTable()
 {
-	list<T> *bucket = hashTable;
-	for (int i = 0; i < HASH_VALUE; i++)
-	{
-		list<T> *temp = bucket;
-		bucket->clear();
-		bucket++;
-		delete temp;
-	}
+
 }
 
 // ----------------------------------------------------------------------------
