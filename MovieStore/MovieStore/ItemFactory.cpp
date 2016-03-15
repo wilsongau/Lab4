@@ -4,18 +4,19 @@
 //	MakeItem(string)
 //  Create Item
 // ----------------------------------------------------------------------------
-Item * ItemFactory::MakeItem(string command, BinTree<Item> &inventory)
+Item * ItemFactory::MakeItem(string command, const string &identifier, 
+	BinTree<Item> &inventory)
 {
 	Item *item = NULL;
-	if (command == MOVIE_COMEDY)
+	if (identifier == MOVIE_COMEDY)
 	{
 		item = (Item*)new ComedyMovie(command);
 	}
-	else if (command == MOVIE_CLASSIC)
+	else if (identifier == MOVIE_CLASSIC)
 	{
 		item = (Item*)new ClassicMovie(command, inventory);
 	}
-	else if (command == MOVIE_DRAMA)
+	else if (identifier == MOVIE_DRAMA)
 	{
 		item = (Item*)new DramaMovie(command);
 	}

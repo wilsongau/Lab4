@@ -18,7 +18,8 @@ using namespace std;
 class ItemFactory
 {
 public:
-	Item* MakeItem(string command, BinTree<Item> &inventory);
+	Item* MakeItem(string command, const string &identifier, 
+		BinTree<Item> &inventory);
 	const string MOVIE_COMEDY = "F";
 	const string MOVIE_CLASSIC = "C";
 	const string MOVIE_DRAMA = "D";

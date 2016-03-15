@@ -36,7 +36,7 @@ bool Store::ReadAction(const string & action)
 		if (id == ITEM_IDENTIFIERS[i])
 		{
 			Item *newItem = NULL;
-			newItem = itemFactory.MakeItem(action, inventory);
+			newItem = itemFactory.MakeItem(action, id, inventory);
 			if (newItem != NULL)
 			{
 				inventory.insert(newItem);

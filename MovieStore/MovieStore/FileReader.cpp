@@ -33,12 +33,13 @@ FileReader::~FileReader()
 // ----------------------------------------------------------------------------
 bool FileReader::getNextLine(string & result)
 {
-	if ((*in).eof()) 
+	string line;
+	if ((*in).eof())
 	{
-		getline(*in, result);
-		return true;
+		return false;
 	}
-	return false;
+	getline(*in, result);
+	return true;
 }
 
 // ----------------------------------------------------------------------------
@@ -47,11 +48,12 @@ bool FileReader::getNextLine(string & result)
 // ----------------------------------------------------------------------------
 bool FileReader::setFileName(const string & filename)
 {
-	ifstream newfile(filename);
+	ifstream * newfile = new ifstream(filename);
 	if (newfile)
 	{
-		in = &newfile;
+		in = newfile;
 		return true;
 	}
+	delete newfile;
 	return false;
 }
