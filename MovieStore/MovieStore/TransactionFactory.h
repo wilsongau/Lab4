@@ -14,8 +14,8 @@
 #include "ReturnTransaction.h"
 #include "InventoryTransaction.h"
 #include "HistoryTransaction.h"
-static class TransactionFactory
+class TransactionFactory
 {
 public:
-	static Transaction*& MakeTransaction(string command);
+	Transaction*& MakeTransaction(string command);
 };

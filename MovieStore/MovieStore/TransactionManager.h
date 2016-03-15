@@ -19,7 +19,7 @@
 #include "bintree.hpp"
 #include <iostream>
 using namespace std;
-static class TransactionManager
+class TransactionManager
 {
 public:
 	TransactionManager();

@@ -15,7 +15,7 @@
 #include "ComedyMovie.h"
 #include "DramaMovie.h"
 using namespace std;
-static class ItemFactory
+class ItemFactory
 {
 public:
 	Item*& MakeItem(string command, BinTree<Item> &inventory);
