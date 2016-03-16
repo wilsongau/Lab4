@@ -420,9 +420,14 @@ bool BinTree<T>::retrieve(const T &target, T *&result) const
 //  retrieve specific T within the tree
 // ----------------------------------------------------------------------------
 template<typename T>
-inline bool BinTree<T>::retrieve(const string &, T *&) const
+inline bool BinTree<T>::retrieve(const string &cmd, T *& result) const
 {
-	return false;
+	T *target = new T(cmd);
+	if (&target == NULL)
+	{
+		return false;
+	}
+	return retrieveHelper(root, *target, result);
 }
 
 // ----------------------------------------------------------------------------

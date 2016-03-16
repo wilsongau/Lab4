@@ -88,7 +88,8 @@ bool HashTable<T>::Insert(T * item, const string & hashstring)
 	//call insert function from LinkedList class at hashTable[hash(hashString)]
 	int index = hash(hashstring);
 	//hashTable[index].Insert(item);    //since we use STD library, shouldn't we use push_back from list??
-	hashTable[index].push_back(item);
+	hashTable[index].push_back(*item);
+	return true;
 }
 
 // ----------------------------------------------------------------------------
@@ -102,7 +103,7 @@ int HashTable<T>::hash(const string & hashString) const
 	int value = 0;
 	for (int i = 0; i < hashString.length(); i++)
 		value += hashString[i];
-	return (value * hashString.length()) % length;
+	return (value * hashString.length()) % HASH_VALUE;
 }
 
 #endif
