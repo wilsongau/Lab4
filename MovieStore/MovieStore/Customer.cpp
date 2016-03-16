@@ -106,8 +106,7 @@ void Customer::printHistory() const
 // ----------------------------------------------------------------------------
 string Customer::getHashString() const
 {
-	string hs = firstName + lastName + to_string(id);
-	return hs;
+	return to_string(getId());
 }
 
 // ----------------------------------------------------------------------------

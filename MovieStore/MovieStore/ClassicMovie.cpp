@@ -12,6 +12,25 @@ ClassicMovie::ClassicMovie()
 
 ClassicMovie::ClassicMovie(const string & cmd, BinTree<Item> &inventory)
 {
+	//for classic: C, 10, Victor Fleming, The Wizard of Oz, Judy Garland 7 1939
+	stringstream ss;
+	ss << cmd;
+	string temp;                 // temp string to parse the string
+	getline(ss, temp, ',');          // get identifier
+	identifier = temp[0];                  // assign identifier (char, so [0])
+	getline(ss, temp, ',');          // get stock
+	stringstream(temp) >> stock;  // assign stock
+	getline(ss, director, ',');      // assign director
+	getline(ss, name, ',');         // assign title
+	getline(ss, temp, ',');          // get year
+	stringstream(temp) >> releaseYear;      // assign year
+	ss >> temp;                  // add first name of starring actor
+	starringActor = temp;
+	starringActor += ' ';
+	ss >> temp;                 // add last name of starring actor
+	starringActor += temp;
+	ss >> releaseMonth;                // add month
+	ss >> releaseYear;                 // add month
 	findRelated(inventory);
 }
 

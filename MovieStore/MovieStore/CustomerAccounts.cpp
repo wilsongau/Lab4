@@ -31,14 +31,33 @@ Customer * CustomerAccounts::getCustomer(const string & hashstring) const
 // ----------------------------------------------------------------------------
 bool CustomerAccounts::Insert(const string & command)
 {
-	return false;
+	//command look like ths: 3333 Witch Wicked
+	int idTemp;
+	string firstNameTemp, lastNameTemp;
+	stringstream ss;
+	ss << command;
+	ss >> idTemp;                
+	ss >> firstNameTemp;     
+	ss >> lastNameTemp;
+	if (!isExistingCustomer(idTemp)) //if there is duplicate
+	{
+		return false;
+	}
+	else
+	{
+		Customer temp(idTemp, firstNameTemp, lastNameTemp);
+		customers.Insert(&temp, to_string(idTemp));
+		return true;
+	}
 }
 
 // ----------------------------------------------------------------------------
 //	checkForDuplicates(const Customer &)
 //  helper function for insert function
 // ----------------------------------------------------------------------------
-bool CustomerAccounts::checkForDuplicates(const Customer & account) const
+bool CustomerAccounts::isExistingCustomer(const int & id) const //I think isExstingAccount should take const int& id" as paramenter
 {
+	//go to hashTable of Customers, check ID. If found, then return true
+	//---------IMPORTANT: HASH STRING for Customer must be ID only, no last name -- To ensure no double ID.
 	return false;
 }

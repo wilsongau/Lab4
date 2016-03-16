@@ -11,7 +11,6 @@
 #ifndef MOVIE_H
 #define MOVIE_H
 
-
 #include <string>
 #include "Item.h"
 using namespace std;
@@ -36,6 +35,8 @@ public:
 	//returns the type of the movie
 	string getType() const;
 
+	
+
 protected:
 	//the director of the movie
 	string director;
@@ -45,6 +46,9 @@ protected:
 
 	//the type of movie such as DVD/VHS/BluRay
 	string type;
+
+	//process string to create proper object
+	void loadString(const string& info);
 };
 
 #endif
