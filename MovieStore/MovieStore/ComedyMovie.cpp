@@ -11,6 +11,7 @@ ComedyMovie::ComedyMovie()
 
 ComedyMovie::ComedyMovie(const string & cmd)
 {
+	loadString(cmd);
 }
 // ----------------------------------------------------------------------------
 //	constructor

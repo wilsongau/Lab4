@@ -1,8 +1,5 @@
 #include "BorrowTransaction.h"
 
-
-
-
 // ----------------------------------------------------------------------------
 //	constructor
 //  default constructor for class BorrowTransaction
@@ -17,6 +14,7 @@ BorrowTransaction::BorrowTransaction()
 // ----------------------------------------------------------------------------
 BorrowTransaction::BorrowTransaction(const string & cmd)
 {
+	loadString(cmd);
 }
 
 // ----------------------------------------------------------------------------

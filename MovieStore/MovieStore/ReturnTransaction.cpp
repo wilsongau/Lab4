@@ -15,6 +15,7 @@ ReturnTransaction::ReturnTransaction()
 // ----------------------------------------------------------------------------
 ReturnTransaction::ReturnTransaction(const string & cmd)
 {
+	loadString(cmd);
 }
 
 

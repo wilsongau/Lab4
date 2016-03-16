@@ -11,6 +11,7 @@
 // ---------------------------------------------------------------------------
 
 #include <iostream>
+#include <sstream>
 #include <string>
 using namespace std;
 class Transaction
@@ -21,6 +22,8 @@ public:
 	~Transaction(); //deconstructor
 					
 	char getIdentifier() const; // returns the identifier of child class type
+protected:
+	void loadString(const string&);
 private:
 	char identifier = 'T';
 };
