@@ -6,7 +6,7 @@
 // ----------------------------------------------------------------------------
 ostream& operator<<(ostream &out, const Item &item) 
 {
-	out << item.name << ": " << item.stock;
+	out << item.name;
 	return out;
 }
 
@@ -23,6 +23,9 @@ Item::Item()
 
 Item::Item(const string & cmd)
 {
+	stock = 0;
+	identifier = 'I';
+	name = cmd;
 }
 
 // ----------------------------------------------------------------------------
@@ -54,9 +57,7 @@ Item & Item::operator=(const Item & other)
 
 bool Item::operator==(const Item &compare) const
 {
-	if (this->name == compare.getName() && 
-		this->stock == compare.getStock() && 
-		this->identifier == compare.getIdentifier())
+	if (this->name == compare.getName())
 	{
 		return true;
 	}
@@ -70,20 +71,7 @@ bool Item::operator!=(const Item &compare) const
 
 bool Item::operator<(const Item & other) const
 {
-	if (this->identifier < other.getIdentifier())
-	{
-		return true;
-	}
-	if (this->identifier == other.getIdentifier() &&
-		this->name < other.getName())
-
-	{
-		return true;
-	}
-	if (this->identifier == other.getIdentifier() &&
-		this->name == other.getName() &&
-		this->stock < other.getStock())
-
+	if (this->name < other.getName())
 	{
 		return true;
 	}
@@ -97,20 +85,7 @@ bool Item::operator<=(const Item &other) const
 
 bool Item::operator>(const Item &other) const
 {
-	if (this->identifier > other.getIdentifier())
-	{
-		return true;
-	}
-	if (this->identifier == other.getIdentifier() &&
-		this->name > other.getName())
-
-	{
-		return true;
-	}
-	if (this->identifier == other.getIdentifier() &&
-		this->name == other.getName() &&
-		this->stock > other.getStock())
-
+	if (this->name > other.getName())
 	{
 		return true;
 	}
