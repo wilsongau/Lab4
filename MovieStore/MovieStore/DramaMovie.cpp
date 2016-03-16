@@ -19,6 +19,7 @@ DramaMovie::~DramaMovie()
 
 DramaMovie::DramaMovie(const string & cmd)
 {
+	loadString(cmd);
 }
 
 // ----------------------------------------------------------------------------

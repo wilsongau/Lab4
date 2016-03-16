@@ -31,7 +31,7 @@ private:
 
 	//check for the duplicate customers
 	//	will be called internally in the insert function
-	bool checkForDuplicates(const Customer &account) const;
+	bool isExistingCustomer(const int &) const;
 };
 
 #endif
