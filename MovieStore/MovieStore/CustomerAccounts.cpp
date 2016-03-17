@@ -6,6 +6,7 @@
 // ----------------------------------------------------------------------------
 CustomerAccounts::CustomerAccounts()
 {
+	
 }
 
 // ----------------------------------------------------------------------------
@@ -14,6 +15,7 @@ CustomerAccounts::CustomerAccounts()
 // ----------------------------------------------------------------------------
 CustomerAccounts::~CustomerAccounts()
 {
+
 }
 
 // ----------------------------------------------------------------------------
@@ -40,19 +42,34 @@ bool CustomerAccounts::Insert(const string & command)
 	int idTemp;
 	Customer tempAccount;
 	Customer *result = NULL;
-	string firstNameTemp, lastNameTemp;
+	string firstNameTemp, lastNameTemp, temp1;
 	stringstream ss;
 	ss << command;
-	ss >> idTemp;                
-	ss >> firstNameTemp;     
-	ss >> lastNameTemp;
+	//ss >> idTemp;                
+	//ss >> firstNameTemp;     
+	//ss >> lastNameTemp;
+	//tempAccount.setId(idTemp);
+	////check if there's already an existing account w/ id
+	//if (customers.get(to_string(idTemp), tempAccount, result))
+	//{
+	//	return false;
+	//}
+	//Customer temp(idTemp, firstNameTemp, lastNameTemp);
+	//customers.Insert(&temp, to_string(idTemp));
+	//return true;
+	                
+
+	getline(ss, temp1, ' ');                            // get id 
+	stringstream(temp1) >> idTemp;                            // convert id to int 
 	tempAccount.setId(idTemp);
 	//check if there's already an existing account w/ id
 	if (customers.get(to_string(idTemp), tempAccount, result))
 	{
 		return false;
 	}
+	getline(ss, firstNameTemp, ' ');                            // get last name
+	getline(ss, lastNameTemp);                                // get first name
 	Customer temp(idTemp, firstNameTemp, lastNameTemp);
-	customers.Insert(&temp, to_string(idTemp));
+	//customers.Insert(&temp, to_string(idTemp));
 	return true;
 }

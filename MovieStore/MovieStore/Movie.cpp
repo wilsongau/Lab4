@@ -77,6 +77,10 @@ bool Movie::loadString(const string& info)
 	string numCheckTemp;
 	getline(ss, temp, ',');          // get identifier
 	identifier = temp[0];                  // assign identifier (char, so [0])
+	if (identifier != 'F' || identifier != 'f' || identifier != 'D' || identifier != 'd')
+	{
+		return false;
+	}
 	getline(ss, temp, ',');          // get stock
 	stringstream(temp) >> numCheckTemp;
 	if (!is_number(numCheckTemp))

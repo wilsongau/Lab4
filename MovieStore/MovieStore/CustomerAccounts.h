@@ -13,6 +13,7 @@
 #define ACCOUNTS_HEADER
 #include "HashTable.hpp"
 #include "Customer.h"
+#include <istream>
 class CustomerAccounts
 {
 public:

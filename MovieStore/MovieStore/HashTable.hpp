@@ -42,6 +42,10 @@ private:
 template <class T>
 HashTable<T>::HashTable()
 {
+	for (int i = 0; i < HASH_VALUE; i++)
+	{
+		hashTable[i]; //initialize empty list for each table inside hashtable
+	}
 }
 
 // ----------------------------------------------------------------------------
@@ -58,7 +62,7 @@ HashTable<T>::~HashTable()
 			hashTable[i].clear();
 		}
 	}
-	delete[] hashTable;
+	//delete[] hashTable; //gave me runtime error
 }
 
 // ----------------------------------------------------------------------------
@@ -76,7 +80,7 @@ bool HashTable<T>::get(const string & hashString, const T target, T *& result) /
 	}
 	//I am not sure if this is the correct way to do this
 	list<T>::iterator iter;
-	for (iter = hashTable[index].begin(); iter != hashTable[index].end(); ++iter)
+	for (iter = hashTable[index].begin(); iter != hashTable[index].end(); iter++) //I think you should use iter++, otherwise it never go through first element
 	{
 		if (*iter == target)
 		{
