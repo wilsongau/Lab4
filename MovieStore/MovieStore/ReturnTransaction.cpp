@@ -45,15 +45,6 @@ char ReturnTransaction::getItemType() const
 }
 
 // ----------------------------------------------------------------------------
-//	getItemData()
-//  return the item's data string
-// ----------------------------------------------------------------------------
-string ReturnTransaction::getItemData() const
-{
-	return itemData;
-}
-
-// ----------------------------------------------------------------------------
 //	initialize
 //  initialize the transaction with data parsed from the string
 // ----------------------------------------------------------------------------
@@ -181,4 +172,46 @@ ReturnTransaction & ReturnTransaction::operator=(const ReturnTransaction &other)
 		itemType = other.itemType;
 	}
 	return *this;
+}
+
+char ReturnTransaction::getIdentifier() const
+{
+	return identifier;
+}
+
+string ReturnTransaction::getTitle() const
+{
+	return title;
+}
+
+string ReturnTransaction::getDirector() const
+{
+	return director;
+}
+
+string ReturnTransaction::getActor() const
+{
+	return actor;
+}
+
+int ReturnTransaction::getYear() const
+{
+	return year;
+}
+
+int ReturnTransaction::getMonth() const
+{
+	return month;
+}
+
+// ----------------------------------------------------------------------------
+//  operator<<
+//  output stream operator
+// ----------------------------------------------------------------------------
+ostream& operator<<(ostream &out, const ReturnTransaction &transaction)
+{
+	out << "customer: " << transaction.customerId << " returned: "
+		<< transaction.actor << transaction.director << transaction.title
+		<< transaction.year;
+	return out;
 }

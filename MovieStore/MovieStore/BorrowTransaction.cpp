@@ -120,6 +120,29 @@ void BorrowTransaction::setCheckedOut(bool value)
 	checkedOut = value;
 }
 
+bool BorrowTransaction::Return(const ReturnTransaction & t)
+{
+	if (identifier != t.getIdentifier())
+		return false;
+	if (mediaType != t.getMediaType())
+		return false;
+	if (itemType != t.getItemType())
+		return false;
+	if (title != t.getTitle())
+		return false;
+	if (year != t.getYear())
+		return false;
+	if (month != t.getMonth())
+		return false;
+	if (director != t.getDirector())
+		return false;
+	if (actor != t.getActor())
+		return false;
+	checkedOut = false;
+	return true;
+
+}
+
 bool BorrowTransaction::initialize(const string &cmd)
 {
 	//sample cmd: B 8000 D F National Lampoon's Animal House, 1978 || B 8888 D C 3 1971 Ruth Gordon
@@ -230,6 +253,16 @@ bool BorrowTransaction::initialize(const string &cmd)
 	//if no stock, check if its classic
 	//if classic, check related movie
 	return true;
+}
+
+Item BorrowTransaction::getItem() const
+{
+	return *item;
+}
+
+void BorrowTransaction::setItem(Item *target)
+{
+	item = target;
 }
 
 BorrowTransaction & BorrowTransaction::operator=(const BorrowTransaction &other)

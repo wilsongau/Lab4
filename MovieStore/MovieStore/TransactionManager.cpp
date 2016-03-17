@@ -56,7 +56,7 @@ bool TransactionManager::Borrow(BorrowTransaction * t, BinTree<Item>&
 	Item *target = NULL;
 	if (t->getItemType() == 'C')
 	{
-		
+
 		ClassicMovie *temp = new ClassicMovie;
 		temp->setIdentifier(t->getItemType());
 		temp->setReleaseMonth(t->getMonth());
@@ -90,13 +90,85 @@ bool TransactionManager::Borrow(BorrowTransaction * t, BinTree<Item>&
 		cerr << "Could not execute Borrow transaction: " << *t << endl;
 		return false;
 	}
-	item->Borrow(*t);
-	account->addTransaction(t);
-	return true;
+	if (item->getIdentifier() == 'C')
+	{
+		if (item->Borrow())
+		{
+			account->addTransaction(t);
+			return true;
+		}
+		else
+		{
+			ClassicMovie *temp = dynamic_cast<ClassicMovie*>(item);
+			list<ClassicMovie*>::iterator iterator;
+			for (iterator = temp->getRelated().begin(); iterator != temp->getRelated().end(); ++iterator)
+			{
+				if ((*iterator)->getStock() > 0)
+				{
+					(*iterator)->Borrow();
+					t->setCheckedOut(true);
+					t->setActor((*iterator)->getStarringActor());
+					return true;
+				}
+			}
+		}
+	}
+	if (item->Borrow())
+	{
+		account->addTransaction(t);
+		return true;
+	}
+	return false;
 }
+
 
 bool TransactionManager::Return(ReturnTransaction * t, BinTree<Item>&
 	inventory, CustomerAccounts & accounts)
 {
+	Customer *account = accounts.getCustomer(t->getCustomerId());
+	Item *item = NULL;
+	Item *target = NULL;
+	if (t->getItemType() == 'C')
+	{
+
+		ClassicMovie *temp = new ClassicMovie;
+		temp->setIdentifier(t->getItemType());
+		temp->setReleaseMonth(t->getMonth());
+		temp->setReleaseYear(t->getYear());
+		temp->setStarringActor(t->getActor());
+		target = dynamic_cast<Item*>(temp);
+	}
+	if (t->getItemType() == 'D')
+	{
+		DramaMovie *temp = new DramaMovie;
+		temp->setIdentifier(t->getItemType());
+		temp->setDirector(t->getDirector());
+		(temp)->setName(t->getTitle());
+		target = dynamic_cast<Item*>(temp);
+	}
+	if (t->getItemType() == 'F')
+	{
+		ComedyMovie *temp = new ComedyMovie;
+		temp->setIdentifier(t->getItemType());
+		(temp)->setReleaseYear(t->getYear());
+		(temp)->setName(t->getTitle());
+		target = dynamic_cast<Item*>(temp);
+	}
+	if (account == NULL)
+	{
+		cerr << "Account " << t->getCustomerId() << "could not be found." << endl;
+		return false;
+	}
+	if (!inventory.retrieve(*target, item))
+	{
+		cerr << "Could not execute Borrow transaction: " << *t << endl;
+		return false;
+	}
+	if (account->addTransaction(t))
+	{
+		item->Return();
+		return true;
+	}
+	cerr << "Could not execute Borrow transaction: " << *t << endl;
 	return false;
 }

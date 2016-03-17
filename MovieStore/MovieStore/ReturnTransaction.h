@@ -29,16 +29,26 @@ public:
 	int getCustomerId() const; // gets customer account id
 	char getMediaType() const;  // gets media type of the item being returned
 	char getItemType() const; // gets identifier for the item type being returned
-	string getItemData() const; // gets the item's data string
 	bool initialize(const string &cmd); // initialize data
 	//bool findItem(HashTable<Item> *inventory) const; // gets the item // should be handled in TransactionManager
 	ReturnTransaction& operator=(const ReturnTransaction &);
+	char getIdentifier() const;
+	string getTitle() const;
+	string getDirector() const;
+	string getActor() const;
+	int getYear() const;
+	int getMonth() const;
 
 private:
 	int customerId;
 	char mediaType;
+	string title;
+	int year;
+	int month;
+	string director;
+	string actor;
 	char itemType;
-	string itemData;
+	//string itemData;
 	//Item* item; I don't think we need to point to the item here, TransactionManager will search for it when the transaction is processed
 	char identifier = 'R';
 };

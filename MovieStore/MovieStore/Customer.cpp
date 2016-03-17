@@ -90,15 +90,7 @@ void Customer::printHistory() const
 	{
 		for (int i = 0; i < size; i++) 
 		{			
-			/*if (*(transactionHistory[i]).getIdentifier() == 'B')
-			{
-				cout << "Borrow ";
-			}
-			else
-			{
-				cout << "Return ";
-			}
-			cout << *(transactionHistory[i]).getItem() << endl;	*/	
+			cout << transactionHistory[i];
 		}
 		cout << endl;
 	}
@@ -126,12 +118,34 @@ string Customer::getHashString() const
 // ----------------------------------------------------------------------------
 bool Customer::addTransaction(Transaction * trans)
 {
-	transactionHistory.push_back(trans);
-	return true;
+	if (trans->getIdentifier() == 'R')
+	{
+		ReturnTransaction *temp = dynamic_cast<ReturnTransaction*>(trans);
+		if (returnItem(*temp))
+		{
+			transactionHistory.push_back(trans);
+			return true;
+		}
+	}
+	return false;
 }
 
-bool Customer::returnItem(const string & name)
+// ----------------------------------------------------------------------------
+//	returnItem
+//  returns the item in the transaction history
+// ----------------------------------------------------------------------------
+bool Customer::returnItem(const ReturnTransaction& t)
 {
+	for (int i = 0; i < transactionHistory.size(); i++)
+	{
+		if (transactionHistory[i]->getIdentifier() == 'B')
+		{
+			if (dynamic_cast<BorrowTransaction*>(transactionHistory[i])->Return(t))
+			{
+				return true;
+			}
+		}
+	}
 	return false;
 }
 

@@ -13,7 +13,10 @@
 #include <string>
 #include <vector>
 #include "LinkedList.hpp"
+#include "Item.h"
 #include "Transaction.h"
+#include "BorrowTransaction.h"
+#include "ReturnTransaction.h"
 #include <iostream>
 
 using namespace std;
@@ -48,7 +51,7 @@ public:
 	string getHashString() const;
 
 	bool addTransaction(Transaction * trans); // add transaction
-	bool returnItem(const string &name); // returns an item
+	bool returnItem(const ReturnTransaction &); // returns an item
 	bool addTransaction(const Transaction *); // add transaction
 
 

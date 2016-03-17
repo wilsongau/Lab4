@@ -16,6 +16,8 @@
 using namespace std;
 class Transaction
 {
+	friend ostream& operator<<(ostream &out,
+		const Transaction &transaction);
 public:
 	Transaction(); //default constructor
 	~Transaction(); //deconstructor

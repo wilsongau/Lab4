@@ -92,20 +92,20 @@ ostream& operator<<(ostream &out, const Movie &movie)
 //	loadString(const string&)
 //  load string to create proper object
 // ----------------------------------------------------------------------------
-bool Movie::loadString(const string& info) 
+bool Movie::loadString(const string& info)
 {
 	//info will look like: F, 10, Nora Ephron, Sleepless in Seattle, 1993
 	//or: D, 10, Barry Levinson, Good Morning Vietnam, 1988
-	stringstream ss;                 // string reader
+	std::stringstream ss;                 // string reader
 	ss << info;                      // insert string info into reader
 	string temp;                     //  temp string to parse the string
 	string numCheckTemp;
 	getline(ss, temp, ',');          // get identifier
 	identifier = temp[0];                  // assign identifier (char, so [0])
-	//if (identifier != 'F' || identifier != 'f' || identifier != 'D' || identifier != 'd')
-	//{
-	//	return false;
-	//}
+										   //if (identifier != 'F' || identifier != 'f' || identifier != 'D' || identifier != 'd')
+										   //{
+										   //	return false;
+										   //}
 	getline(ss, temp, ',');          // get stock
 	stringstream(temp) >> numCheckTemp;
 	if (!is_number(numCheckTemp))

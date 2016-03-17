@@ -15,6 +15,8 @@
 #ifndef BORROW_HEADER
 #define BORROW_HEADER
 #include "Transaction.h"
+#include "ReturnTransaction.h"
+#include "Item.h"
 class BorrowTransaction : public Transaction
 {
 	// output stream override
@@ -36,7 +38,10 @@ public:
 	int getMonth() const;
 	bool getCheckedOut() const; // checks if transaction is currently on loan
 	void setCheckedOut(bool value); // set checked out
+	bool Return(const ReturnTransaction &t);
 	bool initialize(const string &);
+	Item getItem() const;
+	void setItem(Item *);
 	BorrowTransaction& operator=(const BorrowTransaction &);
 private:
 	int customerId;
@@ -50,6 +55,7 @@ private:
 	//string itemData; //what is itemData? the movie title to search for
 	char identifier = 'B';
 	bool checkedOut;
+	Item * item;
 };
 
 

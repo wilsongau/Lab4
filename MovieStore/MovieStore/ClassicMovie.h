@@ -45,7 +45,7 @@ public:
 	void addRelated(ClassicMovie * movie);
 	bool initialize(const string &cmd);
 	bool initialize(const string &cmd, BinTree<Item> &inventory);
-	bool Borrow(BorrowTransaction &t);
+	list<ClassicMovie*>& getRelated();
 	void printAll() const;
 private:
 	//staring actor for this instance of a Classic movie

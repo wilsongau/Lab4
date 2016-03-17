@@ -13,6 +13,7 @@
 
 #include <string>
 #include "Item.h"
+#include <sstream>
 using namespace std;
 
 class Movie : public Item
@@ -40,7 +41,7 @@ public:
 	//returns the type of the movie
 	string getType() const;
 
-	
+
 
 protected:
 	//the director of the movie

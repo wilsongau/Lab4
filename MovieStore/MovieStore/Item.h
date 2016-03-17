@@ -11,9 +11,8 @@
 #define ITEM_HEADER
 #include <string>
 #include <iostream>
-#include "BorrowTransaction.h"
 #include "HashTable.hpp"
-#include "Customer.h"
+//#include "Customer.h"
 using namespace std;
 class Item
 {
@@ -35,7 +34,7 @@ public:
 	virtual bool initialize(const string &cmd);
 	//will be overridden by children classes to be handled 
 	//differently based on genre
-	bool Borrow(BorrowTransaction &t);
+	bool Borrow();
 	/*	PSEUDO CODE
 
 		if stock > 0
@@ -51,7 +50,7 @@ public:
 	*/
 
 	//
-	bool Return(Customer &customer);
+	bool Return();
 	/*
 		find if there is a borrowed Item that hasen't been 
 		returned by the customer parameter

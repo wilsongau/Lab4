@@ -110,7 +110,7 @@ bool Item::initialize(const string & cmd)
 //  Reduce the stock if available, then return true. Will be overridden by 
 //  children classes possibly handled  differently based on genre
 // ----------------------------------------------------------------------------
-bool Item::Borrow(BorrowTransaction &t)
+bool Item::Borrow()
 {
 	if(stock <= 0)
 	{ 
@@ -128,17 +128,10 @@ bool Item::Borrow(BorrowTransaction &t)
 //  checked if the movies was rented by the customer, if so update stock and
 //  customer's history.
 // ----------------------------------------------------------------------------
-bool Item::Return(Customer & customer)
+bool Item::Return()
 {
-	if (customer.returnItem(name))
-	{
-		stock++;
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+	stock++;
+	return true;
 }
 
 // ----------------------------------------------------------------------------

@@ -49,33 +49,6 @@ bool ClassicMovie::findRelated(BinTree<Item> & inventory)
 	return true;
 }
 
-// ----------------------------------------------------------------------------
-//	Borrow
-//  Borrow's the ClassicMovie, if not in stock will check for other related 
-//  movies that are in stock
-// ----------------------------------------------------------------------------
-bool ClassicMovie::Borrow(BorrowTransaction &t)
-{
-	if (stock > 0)
-	{
-		return true;
-	}
-	else
-	{
-		list<ClassicMovie*>::iterator iterator;
-		for (iterator = related->begin(); iterator != related->end(); ++iterator)
-		{
-			if ((*iterator)->getStock() > 0)
-			{
-				(*iterator)->stock--;
-				t.setCheckedOut(true);
-				t.setActor(starringActor);
-				return true;
-			}
-		}
-		return false;
-	}
-}
 
 // prints all related ClassicMovies
 void ClassicMovie::printAll() const
@@ -184,6 +157,11 @@ bool ClassicMovie::initialize(const string & cmd, BinTree<Item>& inventory)
 	stringstream(temp) >> releaseYear;
 	findRelated(inventory);
 	return true;
+}
+
+list<ClassicMovie*>& ClassicMovie::getRelated()
+{
+	return *related;
 }
 
 
