@@ -21,7 +21,7 @@ public:
 	~CustomerAccounts();
 
 	// get customer by hashString
-	Customer* getCustomer(const string &hashstring) const;
+	Customer* getCustomer(int);
 
 	// Insert customer command
 	bool Insert(const string &command);

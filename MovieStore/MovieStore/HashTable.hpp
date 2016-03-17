@@ -25,14 +25,14 @@ public:
 	~HashTable(); //destructor
 
 	//Retrieves an element from the hash table
-	bool get(const string &hashString, const T target, T &result) const; 
+	bool get(const string &hashString, const T target, T *&result); 
 
 	//Insert element at the hash table
 	bool Insert(T *item, const string &hashstring); 
 private:
 	//hash function to determine where to insert the data at hash table
 	int hash(const string &hashString) const;
-	list<T> *hashTable; //hash table
+	list<T> hashTable[HASH_VALUE]; //hash table
 };
 
 // ----------------------------------------------------------------------------
@@ -42,7 +42,6 @@ private:
 template <class T>
 HashTable<T>::HashTable()
 {
-	hashTable = new list<T>[HASH_VALUE];
 }
 
 // ----------------------------------------------------------------------------
@@ -54,8 +53,12 @@ HashTable<T>::~HashTable()
 {
 	for (int i = 0; i < HASH_VALUE; i++)
 	{
-		hashTable[i].clear();
+		if (hashTable[i].empty())
+		{
+			hashTable[i].clear();
+		}
 	}
+	delete[] hashTable;
 }
 
 // ----------------------------------------------------------------------------
@@ -63,17 +66,21 @@ HashTable<T>::~HashTable()
 //  Retrieving an element from the hash table
 // ----------------------------------------------------------------------------
 template<class T>
-bool HashTable<T>::get(const string & hashString, const T target, T & result) const //why do we have target and result? would they be the same? -- in case of collisions
+bool HashTable<T>::get(const string & hashString, const T target, T *& result) //why do we have target and result? would they be the same? -- in case of collisions
 {
 	//return retrieve function at LinkedList class at hashTable[hash(hashString)]
 	int index = hash(hashString);
+	if (hashTable[index].empty())
+	{
+		return false;
+	}
 	//I am not sure if this is the correct way to do this
 	list<T>::iterator iter;
 	for (iter = hashTable[index].begin(); iter != hashTable[index].end(); ++iter)
 	{
 		if (*iter == target)
 		{
-			result = target;
+			result = &*iter;
 			return true;
 		}
 	}

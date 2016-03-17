@@ -29,7 +29,7 @@ public:
 private:
 	// print transaction history for a particular account
 	bool History(HistoryTransaction *t, 
-		const CustomerAccounts &accounts);
+		CustomerAccounts &accounts);
 
 	// borrow an item from the store
 	bool Borrow(BorrowTransaction *t, BinTree<Item> &inventory, 

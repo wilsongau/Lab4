@@ -35,10 +35,10 @@ bool TransactionManager::performTransaction(Transaction * t, CustomerAccounts
 	return false;
 }
 
-bool TransactionManager::History(HistoryTransaction *t, const CustomerAccounts 
+bool TransactionManager::History(HistoryTransaction *t, CustomerAccounts 
 	& accounts)
 {
-	Customer *account = accounts.getCustomer(to_string(t->getCustomerId()));
+	Customer *account = accounts.getCustomer(t->getCustomerId());
 	if (account == NULL)
 	{
 		cerr << "Account " << t->getCustomerId() << "could not be found." << endl;
@@ -51,7 +51,7 @@ bool TransactionManager::History(HistoryTransaction *t, const CustomerAccounts
 bool TransactionManager::Borrow(BorrowTransaction * t, BinTree<Item>&
 	inventory, CustomerAccounts & accounts)
 {
-	Customer *account = accounts.getCustomer(to_string(t->getCustomerId()));
+	Customer *account = accounts.getCustomer(t->getCustomerId());
 	Item *item = NULL;
 	if (account == NULL)
 	{
