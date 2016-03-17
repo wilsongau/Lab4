@@ -21,9 +21,6 @@ class ClassicMovie :
 
 public:
 	ClassicMovie();
-	ClassicMovie(const string &cmd, BinTree<Item> &inventory);
-	ClassicMovie(int stock, const string &director, const string &title,
-		const string &star, int month, int year, const string &type, BinTree<Item> &inventory);
 	~ClassicMovie();
 
 	//returns the starring actor associated with this instance of a Classic movie
@@ -35,7 +32,8 @@ public:
 	// finds a related ClassicMovie with the listed starring actor
 	bool findRelated(BinTree<Item> & inventory);
 	void addRelated(ClassicMovie * movie);
- 
+	bool initialize(const string &cmd);
+	bool initialize(const string &cmd, BinTree<Item> &inventory);
 	bool Borrow(BorrowTransaction &t);
 	void printAll() const;
 private:

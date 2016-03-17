@@ -20,10 +20,10 @@ class HistoryTransaction : public Transaction
 		const HistoryTransaction &transaction);
 public:
 	HistoryTransaction(); // default constructor
-	HistoryTransaction(const string &cmd); // string constructor
 	~HistoryTransaction(); // deconstructor
 	int getCustomerId() const; // gets the customer's id number 
 	HistoryTransaction& operator=(const HistoryTransaction &t);
+	bool initialize(const string&);
 private:
 	char identifier = 'H';
 	int customerId;

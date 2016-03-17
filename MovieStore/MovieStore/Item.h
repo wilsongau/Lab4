@@ -23,7 +23,6 @@ class Item
 public:
 	Item();
 	Item(const string &cmd);
-	Item(char id, int stock, const string &name);
 	~Item();
 	Item& operator=(const Item &);
 	bool operator==(const Item &) const;
@@ -32,6 +31,7 @@ public:
 	bool operator<=(const Item &) const;
 	bool operator>(const Item &) const;
 	bool operator>=(const Item &) const;
+	virtual bool initialize(const string &cmd);
 	//will be overridden by children classes to be handled 
 	//differently based on genre
 	bool Borrow(BorrowTransaction &t);

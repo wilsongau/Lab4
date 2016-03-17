@@ -31,7 +31,8 @@ public:
 	char getMediaType() const;  // gets media type of the item being returned
 	char getItemType() const; // gets identifier for the item type being returned
 	string getItemData() const; // gets the item's data string
-	bool findItem(HashTable<Item> *inventory) const; // gets the item
+	bool initialize(const string &cmd); // initialize data
+	//bool findItem(HashTable<Item> *inventory) const; // gets the item // should be handled in TransactionManager
 
 private:
 	int customerId;

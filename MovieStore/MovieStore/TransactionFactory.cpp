@@ -14,23 +14,39 @@ Transaction * TransactionFactory::MakeTransaction(string command)
 	string id = command.substr(0, 1);
 	if (id == RETURN)
 	{
-		t = new ReturnTransaction(command);
+		t = new ReturnTransaction;
+		if (!t->initialize(command))
+		{
+			delete t;
+			t = NULL;
+		}
 	}
 	else if (id == INVENTORY)
 	{
-		t = new InventoryTransaction(command);
+		t = new InventoryTransaction;
+		if (!t->initialize(command))
+		{
+			delete t;
+			t = NULL;
+		}
 	}
 	else if (id == HISTORY)
 	{
-		t = new HistoryTransaction(command);
+		t = new HistoryTransaction;
+		if (!t->initialize(command))
+		{
+			delete t;
+			t = NULL;
+		}
 	}
 	else if (id == BORROW)
 	{
-		t = new BorrowTransaction(command);
-	}
-	else 
-	{
-		cerr << "ERROR, invalid command: " << command;
+		t = new BorrowTransaction;
+		if (!t->initialize(command))
+		{
+			delete t;
+			t = NULL;
+		}
 	}
 	return t;
 }

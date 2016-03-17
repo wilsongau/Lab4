@@ -6,15 +6,11 @@
 // ----------------------------------------------------------------------------
 BorrowTransaction::BorrowTransaction()
 {
-}
-
-// ----------------------------------------------------------------------------
-//	constructor
-//  string constructor for class BorrowTransaction
-// ----------------------------------------------------------------------------
-BorrowTransaction::BorrowTransaction(const string & cmd)
-{
-	loadString(cmd);
+	customerId = 0;
+	mediaType = 'X';
+	itemType = 'X';
+	itemData = "";
+	checkedOut = false;
 }
 
 // ----------------------------------------------------------------------------
@@ -92,6 +88,13 @@ void BorrowTransaction::setCheckedOut(bool value)
 {
 	checkedOut = value;
 }
+
+bool BorrowTransaction::initialize(const string &cmd)
+{
+	//write me
+}
+
+
 // ----------------------------------------------------------------------------
 //  operator<<
 //  output stream operator

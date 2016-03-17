@@ -21,6 +21,12 @@ Item::Item()
 	name = "";
 }
 
+
+
+// ----------------------------------------------------------------------------
+//	constructor
+//  string constructor used for searching in bintree
+// ----------------------------------------------------------------------------
 Item::Item(const string & cmd)
 {
 	stock = 0;
@@ -29,22 +35,14 @@ Item::Item(const string & cmd)
 }
 
 // ----------------------------------------------------------------------------
-//	constructor
-//  overload constructor for class Item
-// ----------------------------------------------------------------------------
-Item::Item(char id, int num, const string &name)
-{
-	identifier = id;
-	stock = num;
-	this->name = name;
-}
-
-// ----------------------------------------------------------------------------
 //	destructor
 //  default destructor for class Item
 // ----------------------------------------------------------------------------
 Item::~Item()
 {
+	stock = 0;
+	identifier = 'I';
+	name = "";
 }
 
 Item & Item::operator=(const Item & other)
@@ -95,6 +93,11 @@ bool Item::operator>(const Item &other) const
 bool Item::operator>=(const Item &other) const
 {
 	return !operator<(other);
+}
+
+bool Item::initialize(const string & cmd)
+{
+	return false;
 }
 
 // ----------------------------------------------------------------------------

@@ -14,14 +14,6 @@ InventoryTransaction::InventoryTransaction()
 {
 }
 
-InventoryTransaction::InventoryTransaction(const string & cmd)
-{
-	string readTransaction;
-	stringstream ss;
-	ss << cmd;
-	getline(ss, readTransaction);
-}
-
 InventoryTransaction::~InventoryTransaction()
 {
 }

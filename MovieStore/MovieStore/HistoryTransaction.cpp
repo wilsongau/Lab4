@@ -6,24 +6,9 @@
 // ----------------------------------------------------------------------------
 HistoryTransaction::HistoryTransaction()
 {
+	customerId = 0;
 }
 
-HistoryTransaction::HistoryTransaction(const string & cmd)
-{
-	char readTransaction;
-	int customer_id;            // hold customer id
-
-	stringstream ss;            // string reader
-	ss << cmd;
-	ss >> readTransaction;
-	ss >> customer_id;          // get customer id
-
-	//I think we should validate customer here, basically 
-	//if(!isExistingCustomer(customer_id)) 
-	//{
-	//do nothing or display message for bad line input
-	//}
-}
 
 // ----------------------------------------------------------------------------
 //	destructor
@@ -56,4 +41,19 @@ HistoryTransaction & HistoryTransaction::operator=(const HistoryTransaction & so
 	}
 	delete temp;
 	return *this;
+}
+
+bool HistoryTransaction::initialize(const string &cmd)
+{
+	char readTransaction;
+	stringstream ss;            // string reader
+	string temp = "";
+	ss << cmd;
+	ss >> readTransaction;
+	ss >> temp;          // get customer id
+	if (is_number(temp))
+	{
+		stringstream(customerId) >> temp;
+	}
+	return customerId != 0;
 }

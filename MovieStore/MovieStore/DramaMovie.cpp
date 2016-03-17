@@ -6,7 +6,7 @@
 // ----------------------------------------------------------------------------
 DramaMovie::DramaMovie()
 {
-	Movie('D', 0, "", "", 0, ""); //empty DramaMovie
+	Movie(); //empty DramaMovie
 }
 
 // ----------------------------------------------------------------------------
@@ -16,22 +16,6 @@ DramaMovie::DramaMovie()
 DramaMovie::~DramaMovie()
 {
 }
-
-DramaMovie::DramaMovie(const string & cmd)
-{
-	loadString(cmd);
-}
-
-// ----------------------------------------------------------------------------
-//	constructor
-//  overload constructor for class DranaMovie
-// ----------------------------------------------------------------------------
-DramaMovie::DramaMovie(int stock, const string & dir, const string & name, 
-	int year, const string & type)
-{
-	Movie('D', stock, dir, name, year, type);
-}
-
 
 // ----------------------------------------------------------------------------
 //	operator<<

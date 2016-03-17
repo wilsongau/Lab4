@@ -18,7 +18,6 @@ class InventoryTransaction : public Transaction
 	friend ostream& operator<<(ostream &out, const InventoryTransaction &transaction);
 public:
 	InventoryTransaction(); // default constructor
-	InventoryTransaction(const string &cmd); // string constructor
 	~InventoryTransaction(); // deconstructor
 
 private:

@@ -10,19 +10,31 @@ Item * ItemFactory::MakeItem(string command, const string &identifier,
 	Item *item = NULL;
 	if (identifier == MOVIE_COMEDY)
 	{
-		item = (Item*)new ComedyMovie(command);
+		item = (Item*)new ComedyMovie;
+		if (!item->initialize(command))
+		{
+			delete item;
+			item = NULL;
+		}
 	}
 	else if (identifier == MOVIE_CLASSIC)
 	{
-		item = (Item*)new ClassicMovie(command, inventory);
+		ClassicMovie *temp = new ClassicMovie;
+		if (!temp->initialize(command, inventory))
+		{
+			delete item;
+			item = NULL;
+		}
+		item = (Item*)temp;
 	}
 	else if (identifier == MOVIE_DRAMA)
 	{
-		item = (Item*)new DramaMovie(command);
-	}
-	else
-	{
-		cerr << "Invalid Item Creation Command: " << command << endl;
+		item = (Item*)new DramaMovie;
+		if (!item->initialize(command))
+		{
+			delete item;
+			item = NULL;
+		}
 	}
 	return item;
 }

@@ -22,9 +22,10 @@ class Movie : public Item
 
 public:
 	Movie();
-	Movie(char id, int stock, const string &dir, const string &name, int year, 
-		const string &type);
 	~Movie();
+
+	//parse string for data to initialize the Movie with
+	bool initialize(const string &cmd);
 
 	//returns the director associated with a movie
 	string getDirector() const;
@@ -48,7 +49,8 @@ protected:
 	string type;
 
 	//process string to create proper object
-	void loadString(const string& info);
+	bool loadString(const string& info);
+	bool is_number(const string& s) const;
 };
 
 #endif

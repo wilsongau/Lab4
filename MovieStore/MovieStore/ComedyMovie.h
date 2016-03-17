@@ -18,7 +18,5 @@ class ComedyMovie :
 public:
 	ComedyMovie();
 	ComedyMovie(const string &cmd);
-	ComedyMovie(int stock, const string &dir, const string &name,
-		int year, const string & type);
 	~ComedyMovie();
 };

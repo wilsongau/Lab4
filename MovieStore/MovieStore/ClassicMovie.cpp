@@ -5,48 +5,10 @@
 // ----------------------------------------------------------------------------
 ClassicMovie::ClassicMovie()
 {
-	Movie('C', 0, "", "", 0, "D");
+	Movie();
 	starringActor = "";
 	releaseMonth = 0;
-}
-
-ClassicMovie::ClassicMovie(const string & cmd, BinTree<Item> &inventory)
-{
-	//for classic: C, 10, Victor Fleming, The Wizard of Oz, Judy Garland 7 1939
-	stringstream ss;
-	ss << cmd;
-	string temp;                 // temp string to parse the string
-	getline(ss, temp, ',');          // get identifier
-	identifier = temp[0];                  // assign identifier (char, so [0])
-	getline(ss, temp, ',');          // get stock
-	stringstream(temp) >> stock;  // assign stock
-	getline(ss, director, ',');      // assign director
-	getline(ss, name, ',');         // assign title
-	getline(ss, temp, ',');          // get year
-	stringstream(temp) >> releaseYear;      // assign year
-	ss >> temp;                  // add first name of starring actor
-	starringActor = temp;
-	starringActor += ' ';
-	ss >> temp;                 // add last name of starring actor
-	starringActor += temp;
-	ss >> releaseMonth;                // add month
-	ss >> releaseYear;                 // add month
-	findRelated(inventory);
-}
-
-// ----------------------------------------------------------------------------
-//	constructor
-//  overload constructor for class ClassicMovie
-// ----------------------------------------------------------------------------
-ClassicMovie::ClassicMovie(int stock, const string & director, 
-	const string &title, const string & star, int month, int year, 
-	const string &type, BinTree<Item> &inventory)
-{
-	Movie('C', stock, director, title, year, type);
-	starringActor = star;
-	releaseMonth = month;
-	findRelated(inventory);
-
+	identifier = 'C';
 }
 
 // ----------------------------------------------------------------------------
@@ -141,6 +103,83 @@ void ClassicMovie::addRelated(ClassicMovie * movie)
 		related->push_back(movie);
 		movie->related = related;
 	}
+}
+
+bool ClassicMovie::initialize(const string & cmd)
+{
+	//for classic: C, 10, Victor Fleming, The Wizard of Oz, Judy Garland 7 1939
+	stringstream ss;
+	ss << cmd;
+	string temp;                 // temp string to parse the string
+	getline(ss, temp, ',');          // get identifier
+	identifier = temp[0];                  // assign identifier (char, so [0])
+	getline(ss, temp, ',');          // get stock
+	if (!is_number(temp))
+	{
+		return false;
+	}
+	stringstream(temp) >> stock;  // assign stock
+	getline(ss, director, ',');      // assign director
+	getline(ss, name, ',');         // assign title
+	ss >> temp;                  // add first name of starring actor
+	starringActor = temp;
+	starringActor += ' ';
+	ss >> temp;                 // add last name of starring actor
+	starringActor += temp;
+	ss >> temp;                // get month
+	if (!is_number(temp))
+	{
+		return false;
+	}
+	stringstream(temp) >> releaseMonth;
+	ss >> temp;                 // get year
+	if (!is_number(temp))
+	{
+		return false;
+	}
+	stringstream(temp) >> releaseYear;
+	return true;
+}
+
+bool ClassicMovie::initialize(const string & cmd, BinTree<Item>& inventory)
+{
+	//for classic: C, 10, Victor Fleming, The Wizard of Oz, Judy Garland 7 1939
+	stringstream ss;
+	ss << cmd;
+	string temp;                 // temp string to parse the string
+	string numCheckTemp;
+	getline(ss, temp, ',');          // get identifier
+	identifier = temp[0];                  // assign identifier (char, so [0])
+	getline(ss, temp, ',');          // get stock
+	stringstream(temp) >> numCheckTemp;
+	if (!is_number(numCheckTemp))
+	{
+		return false;
+	}
+	stringstream(temp) >> stock;  // assign stock
+	getline(ss, director, ',');      // assign director
+	getline(ss, name, ',');         // assign title
+	ss >> temp;                  // add first name of starring actor
+	starringActor = temp;
+	starringActor += ' ';
+	ss >> temp;                 // add last name of starring actor
+	starringActor += temp;
+	ss >> temp;                // get month
+	stringstream(temp) >> numCheckTemp;
+	if (!is_number(numCheckTemp))
+	{
+		return false;
+	}
+	stringstream(temp) >> releaseMonth;
+	ss >> temp;                 // get year
+	stringstream(temp) >> numCheckTemp;
+	if (!is_number(numCheckTemp))
+	{
+		return false;
+	}
+	stringstream(temp) >> releaseYear;
+	findRelated(inventory);
+	return true;
 }
 
 

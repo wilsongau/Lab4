@@ -23,6 +23,10 @@ Store::~Store()
 // ----------------------------------------------------------------------------
 bool Store::ReadAction(const string & action)
 {
+	if (action.empty())
+	{
+		return false;
+	}
 	string id = action.substr(0, 1);
 	if (isdigit(id.at(0)))
 	{
@@ -30,6 +34,8 @@ bool Store::ReadAction(const string & action)
 		{
 			return true;
 		}
+		cerr << "Invalid Command: " << action << endl;
+		return false;
 	}
 	for (int i = 0; i < sizeof(ITEM_IDENTIFIERS) / sizeof(ITEM_IDENTIFIERS[0]); i++)
 	{
@@ -42,6 +48,8 @@ bool Store::ReadAction(const string & action)
 				inventory.insert(newItem);
 				return true;
 			}
+			cerr << "Invalid Command: " << action << endl;
+			return false;
 		}
 	}
 	for (int i = 0; i < sizeof(TRANSACTION_IDENTIFIERS) / sizeof(TRANSACTION_IDENTIFIERS[0]); i++)
@@ -52,9 +60,11 @@ bool Store::ReadAction(const string & action)
 			newTransaction = transactionFactory.MakeTransaction(action);
 			if (newTransaction != NULL)
 			{
-				return transactionManager.performTransaction(newTransaction, 
+				return transactionManager.performTransaction(newTransaction,
 					accounts, inventory);
 			}
+			cerr << "Invalid Command: " << action << endl;
+			return false;
 		}
 	}
 	cerr << "Invalid Command: " << action << endl;

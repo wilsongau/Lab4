@@ -18,12 +18,12 @@ class Transaction
 {
 public:
 	Transaction(); //default constructor
-	Transaction(const string &cmd);
 	~Transaction(); //deconstructor
-					
+	bool initialize(const string&);
 	char getIdentifier() const; // returns the identifier of child class type
 protected:
-	void loadString(const string&);
+	bool loadString(const string&);
+	bool is_number(const string&) const;
 private:
 	char identifier = 'T';
 };

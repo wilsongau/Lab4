@@ -22,7 +22,6 @@ class BorrowTransaction : public Transaction
 		const BorrowTransaction &transaction);
 public:
 	BorrowTransaction(); // default constructor
-	BorrowTransaction(const string &cmd); // string constructor
 	~BorrowTransaction(); // deconstructor
 	int getCustomerId() const; // get customerID
 	char getMediaType() const;  // get media type of the item being borrowed
@@ -31,7 +30,7 @@ public:
 	void setItemData(const string &);
 	bool getCheckedOut() const; // checks if transaction is currently on loan
 	void setCheckedOut(bool value); // set checked out
-
+	bool initialize(const string &);
 private:
 	int customerId;
 	char mediaType;

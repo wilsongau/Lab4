@@ -64,10 +64,10 @@ string ReturnTransaction::getItemData() const
 }
 
 // ----------------------------------------------------------------------------
-//	findItem(HashTable<Item>*)
-//  return true if found the item
+//	initialize
+//  initialize the transaction with data parsed from the string
 // ----------------------------------------------------------------------------
-bool ReturnTransaction::findItem(HashTable<Item>* inventory) const
+bool ReturnTransaction::initialize(const string & cmd)
 {
 	return false;
 }

@@ -8,10 +8,6 @@ Transaction::Transaction()
 {
 }
 
-Transaction::Transaction(const string & cmd)
-{
-}
-
 // ----------------------------------------------------------------------------
 //	destructor
 //  default destructor for class Transaction
@@ -25,7 +21,7 @@ char Transaction::getIdentifier() const
 	return identifier;
 }
 
-void Transaction::loadString(const string & cmd)
+bool Transaction::loadString(const string & cmd)
 {
 	//sample cmd: B 8000 D F National Lampoon's Animal House, 1978 || B 8888 D C 3 1971 Ruth Gordon
 
@@ -96,3 +92,14 @@ void Transaction::loadString(const string & cmd)
 		//error handling
 	}
 }
+
+bool Transaction::is_number(const string & s) const
+{
+	string::const_iterator it = s.begin();
+	while (it != s.end() && isdigit(*it))
+	{
+		++it;
+	}
+	return (!s.empty() && it == s.end());
+}
+

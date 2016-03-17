@@ -6,23 +6,10 @@
 // ----------------------------------------------------------------------------
 Movie::Movie()
 {
-	Item('m', 0, "");
+	Item();
 	director = "";
 	releaseYear = 0;
 	type = "";
-}
-
-// ----------------------------------------------------------------------------
-//	constructor
-//  overload constructor for class Movie
-// ----------------------------------------------------------------------------
-Movie::Movie(char id, int stock, const string &dir, const string &name,
-	int year, const string & type)
-{
-	Item(id, stock, name);
-	director = dir;
-	releaseYear = year;
-	this->type = type;
 }
 
 // ----------------------------------------------------------------------------
@@ -31,6 +18,11 @@ Movie::Movie(char id, int stock, const string &dir, const string &name,
 // ----------------------------------------------------------------------------
 Movie::~Movie()
 {
+}
+
+bool Movie::initialize(const string & cmd)
+{
+	return loadString(cmd);
 }
 
 // ----------------------------------------------------------------------------
@@ -75,19 +67,41 @@ ostream& operator<<(ostream &out, const Movie &movie)
 //	loadString(const string&)
 //  load string to create proper object
 // ----------------------------------------------------------------------------
-void Movie::loadString(const string& info) 
+bool Movie::loadString(const string& info) 
 {
 	//info will look like: F, 10, Nora Ephron, Sleepless in Seattle, 1993
 	//or: D, 10, Barry Levinson, Good Morning Vietnam, 1988
 	stringstream ss;                 // string reader
 	ss << info;                      // insert string info into reader
 	string temp;                     //  temp string to parse the string
+	string numCheckTemp;
 	getline(ss, temp, ',');          // get identifier
 	identifier = temp[0];                  // assign identifier (char, so [0])
 	getline(ss, temp, ',');          // get stock
+	stringstream(temp) >> numCheckTemp;
+	if (!is_number(numCheckTemp))
+	{
+		return false;
+	}
 	stringstream(temp) >> stock;  // assign stock
 	getline(ss, director, ',');      // assign director
 	getline(ss, name, ',');         // assign title
 	getline(ss, temp, ',');          // get year
+	stringstream(temp) >> numCheckTemp;
+	if (!is_number(numCheckTemp))
+	{
+		return false;
+	}
 	stringstream(temp) >> releaseYear;      // assign year
+	return true;
+}
+
+bool Movie::is_number(const string & s) const
+{
+	string::const_iterator it = s.begin();
+	while (it != s.end() && isdigit(*it))
+	{
+		++it;
+	}
+	return (!s.empty() && it == s.end());
 }
