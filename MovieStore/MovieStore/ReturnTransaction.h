@@ -25,7 +25,6 @@ class ReturnTransaction : public Transaction
 		const ReturnTransaction &transaction);
 public:
 	ReturnTransaction(); //default constructor
-	ReturnTransaction(const string &cmd);
 	~ReturnTransaction(); //deconstructor
 	int getCustomerId() const; // gets customer account id
 	char getMediaType() const;  // gets media type of the item being returned

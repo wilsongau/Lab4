@@ -92,6 +92,7 @@ void BorrowTransaction::setCheckedOut(bool value)
 bool BorrowTransaction::initialize(const string &cmd)
 {
 	//write me
+	return false;
 }
 
 

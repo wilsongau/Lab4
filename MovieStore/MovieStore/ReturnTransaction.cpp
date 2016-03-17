@@ -10,16 +10,6 @@ ReturnTransaction::ReturnTransaction()
 }
 
 // ----------------------------------------------------------------------------
-//	constructor
-//  string constructor for class CustomerAccounts
-// ----------------------------------------------------------------------------
-ReturnTransaction::ReturnTransaction(const string & cmd)
-{
-	loadString(cmd);
-}
-
-
-// ----------------------------------------------------------------------------
 //	destructor
 //  default destructor for class ReturnTransaction
 // ----------------------------------------------------------------------------

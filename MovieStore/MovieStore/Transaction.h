@@ -22,7 +22,7 @@ public:
 	bool initialize(const string&);
 	char getIdentifier() const; // returns the identifier of child class type
 protected:
-	bool loadString(const string&);
+	//bool loadString(const string&);
 	bool is_number(const string&) const;
 private:
 	char identifier = 'T';
