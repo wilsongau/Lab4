@@ -148,8 +148,13 @@ bool ClassicMovie::initialize(const string & cmd, BinTree<Item>& inventory)
 	ss << cmd;
 	string temp;                 // temp string to parse the string
 	string numCheckTemp;
+
 	getline(ss, temp, ',');          // get identifier
 	identifier = temp[0];                  // assign identifier (char, so [0])
+	if (identifier != 'C' || identifier != 'c')
+	{
+		return false;
+	}
 	getline(ss, temp, ',');          // get stock
 	stringstream(temp) >> numCheckTemp;
 	if (!is_number(numCheckTemp))

@@ -36,7 +36,7 @@ private:
 	int customerId;
 	char mediaType;
 	char itemType;
-	string itemData;
+	string itemData; //what is itemData?
 	char identifier = 'B';
 	bool checkedOut;
 };
