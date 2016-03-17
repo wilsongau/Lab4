@@ -9,7 +9,8 @@
 // for movies with the 'C' identifier. Adds releaseMonth and starringActor
 // properties.
 // ---------------------------------------------------------------------------
-
+#ifndef CLASSIC_MOVIE_HEADER
+#define CLASSIC_MOVIE_HEADER
 #include "Movie.h"
 #include "bintree.hpp"
 #include <list>
@@ -25,9 +26,19 @@ public:
 
 	//returns the starring actor associated with this instance of a Classic movie
 	string getStarringActor() const;
+	void setStarringActor(const string &actor);
 
 	//returns the month that the movie was released
 	int getReleaseMonth() const;
+	void setReleaseMonth(int mon);
+
+	ClassicMovie& operator=(const ClassicMovie &);
+	bool operator==(const ClassicMovie &) const;
+	bool operator!=(const ClassicMovie &) const;
+	bool operator<(const ClassicMovie &) const;
+	bool operator<=(const ClassicMovie &) const;
+	bool operator>(const ClassicMovie &) const;
+	bool operator>=(const ClassicMovie &) const;
 	
 	// finds a related ClassicMovie with the listed starring actor
 	bool findRelated(BinTree<Item> & inventory);
@@ -47,3 +58,4 @@ private:
 	list<ClassicMovie*> * related = NULL;
 
 };
+#endif

@@ -70,6 +70,6 @@ bool CustomerAccounts::Insert(const string & command)
 	getline(ss, firstNameTemp, ' ');                            // get last name
 	getline(ss, lastNameTemp);                                // get first name
 	Customer temp(idTemp, firstNameTemp, lastNameTemp);
-	//customers.Insert(&temp, to_string(idTemp));
+	customers.Insert(&temp, to_string(idTemp));
 	return true;
 }

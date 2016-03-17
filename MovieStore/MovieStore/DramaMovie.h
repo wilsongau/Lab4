@@ -19,5 +19,11 @@ class DramaMovie :
 public:
 	DramaMovie();
 	~DramaMovie();
+	bool operator==(const Movie &) const;
+	bool operator!=(const Movie &) const;
+	bool operator<(const Movie &) const;
+	bool operator<=(const Movie &) const;
+	bool operator>(const Movie &) const;
+	bool operator>=(const Movie &) const;
 };
 #endif

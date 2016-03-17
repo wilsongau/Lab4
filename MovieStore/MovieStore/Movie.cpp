@@ -12,12 +12,27 @@ Movie::Movie()
 	type = "";
 }
 
+Movie::Movie(const Movie &other)
+{
+	*this = other;
+}
+
 // ----------------------------------------------------------------------------
 //	destructor
 //  default destructor for class Movie
 // ----------------------------------------------------------------------------
 Movie::~Movie()
 {
+}
+
+Movie & Movie::operator=(const Movie &other)
+{
+	stock = other.getStock();
+	identifier = other.getIdentifier();
+	releaseYear = other.getReleaseYear();
+	director = other.getDirector();
+	name = other.getName();
+	return *this;
 }
 
 bool Movie::initialize(const string & cmd)
@@ -34,6 +49,11 @@ string Movie::getDirector() const
 	return director;
 }
 
+void Movie::setDirector(const string & dir)
+{
+	director = dir;
+}
+
 // ----------------------------------------------------------------------------
 //	getReleaseYear()
 //  return the year the movie was released
@@ -41,6 +61,11 @@ string Movie::getDirector() const
 int Movie::getReleaseYear() const
 {
 	return releaseYear;
+}
+
+void Movie::setReleaseYear(int year)
+{
+	releaseYear = year;
 }
 
 // ----------------------------------------------------------------------------
@@ -77,10 +102,10 @@ bool Movie::loadString(const string& info)
 	string numCheckTemp;
 	getline(ss, temp, ',');          // get identifier
 	identifier = temp[0];                  // assign identifier (char, so [0])
-	if (identifier != 'F' || identifier != 'f' || identifier != 'D' || identifier != 'd')
-	{
-		return false;
-	}
+	//if (identifier != 'F' || identifier != 'f' || identifier != 'D' || identifier != 'd')
+	//{
+	//	return false;
+	//}
 	getline(ss, temp, ',');          // get stock
 	stringstream(temp) >> numCheckTemp;
 	if (!is_number(numCheckTemp))

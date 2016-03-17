@@ -45,6 +45,11 @@ Item::~Item()
 	name = "";
 }
 
+void Item::setIdentifier(char id)
+{
+	identifier = id;
+}
+
 Item & Item::operator=(const Item & other)
 {
 	stock = other.getStock();

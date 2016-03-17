@@ -22,6 +22,36 @@ ComedyMovie::~ComedyMovie()
 {
 }
 
+bool ComedyMovie::operator==(const Movie &other) const
+{
+	return (name == other.getName() && releaseYear == other.getReleaseYear());
+}
+
+bool ComedyMovie::operator!=(const Movie &other) const
+{
+	return !operator==(other);
+}
+
+bool ComedyMovie::operator<(const Movie &other) const
+{
+	return (name < other.getName() || releaseYear < other.getReleaseYear());
+}
+
+bool ComedyMovie::operator<=(const Movie &other) const
+{
+	return (operator<(other) || operator==(other));
+}
+
+bool ComedyMovie::operator>(const Movie &other) const
+{
+	return (name > other.getName() || releaseYear > other.getReleaseYear());
+}
+
+bool ComedyMovie::operator>=(const Movie &other) const
+{
+	return (operator>(other) || operator==(other));
+}
+
 
 // ----------------------------------------------------------------------------
 //	operator<<

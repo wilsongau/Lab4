@@ -28,6 +28,8 @@ bool Store::ReadAction(const string & action)
 		return false;
 	}
 	string id = action.substr(0, 1);
+
+	//customer accounts
 	if (isdigit(id.at(0)))
 	{
 		if (accounts.Insert(action))
@@ -37,6 +39,8 @@ bool Store::ReadAction(const string & action)
 		cerr << "Invalid Command: " << action << endl;
 		return false;
 	}
+
+	//items
 	for (int i = 0; i < sizeof(ITEM_IDENTIFIERS) / sizeof(ITEM_IDENTIFIERS[0]); i++)
 	{
 		if (id == ITEM_IDENTIFIERS[i])
@@ -52,6 +56,8 @@ bool Store::ReadAction(const string & action)
 			return false;
 		}
 	}
+
+	//transactions
 	for (int i = 0; i < sizeof(TRANSACTION_IDENTIFIERS) / sizeof(TRANSACTION_IDENTIFIERS[0]); i++)
 	{
 		if (id == TRANSACTION_IDENTIFIERS[i])

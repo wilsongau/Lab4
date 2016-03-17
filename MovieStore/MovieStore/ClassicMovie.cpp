@@ -67,10 +67,9 @@ bool ClassicMovie::Borrow(BorrowTransaction &t)
 		{
 			if ((*iterator)->getStock() > 0)
 			{
-				string itemData = to_string((*iterator)->releaseMonth + (*iterator)->getReleaseYear()) + (*iterator)->starringActor;
 				(*iterator)->stock--;
 				t.setCheckedOut(true);
-				t.setItemData(itemData);
+				t.setActor(starringActor);
 				return true;
 			}
 		}
@@ -150,11 +149,11 @@ bool ClassicMovie::initialize(const string & cmd, BinTree<Item>& inventory)
 	string numCheckTemp;
 
 	getline(ss, temp, ',');          // get identifier
-	identifier = temp[0];                  // assign identifier (char, so [0])
-	if (identifier != 'C' || identifier != 'c')
-	{
-		return false;
-	}
+	//identifier = temp[0];                  // assign identifier (char, so [0])
+	//if (identifier != 'C' || identifier != 'c')
+	//{
+	//	return false;
+	//}
 	getline(ss, temp, ',');          // get stock
 	stringstream(temp) >> numCheckTemp;
 	if (!is_number(numCheckTemp))
@@ -197,6 +196,11 @@ string ClassicMovie::getStarringActor() const
 	return starringActor;
 }
 
+void ClassicMovie::setStarringActor(const string & actor)
+{
+	starringActor = actor;
+}
+
 // ----------------------------------------------------------------------------
 //	getReleaseMonth
 //  return the release month of the movie
@@ -204,4 +208,58 @@ string ClassicMovie::getStarringActor() const
 int ClassicMovie::getReleaseMonth() const
 {
 	return releaseMonth;
+}
+
+void ClassicMovie::setReleaseMonth(int mon)
+{
+	releaseMonth = mon;
+}
+
+ClassicMovie & ClassicMovie::operator=(const ClassicMovie &other)
+{
+	stock = other.getStock();
+	identifier = other.getIdentifier();
+	releaseMonth = other.getReleaseMonth();
+	releaseYear = other.getReleaseYear();
+	director = other.getDirector();
+	starringActor = other.getStarringActor();
+	related = other.related;
+	name = other.getName();
+	return *this;
+}
+
+bool ClassicMovie::operator==(const ClassicMovie &other) const
+{
+	return (releaseMonth == other.getReleaseMonth() &&
+		releaseYear == other.getReleaseYear() && 
+		starringActor == other.getStarringActor());
+}
+
+bool ClassicMovie::operator!=(const ClassicMovie &other) const
+{
+	return !operator==(other);
+}
+
+bool ClassicMovie::operator<(const ClassicMovie &other) const
+{
+	return (releaseMonth < other.getReleaseMonth() ||
+		releaseYear < other.getReleaseYear() ||
+		starringActor < other.getStarringActor());
+}
+
+bool ClassicMovie::operator<=(const ClassicMovie &other) const
+{
+	return (operator<(other) || operator==(other));
+}
+
+bool ClassicMovie::operator>(const ClassicMovie &other) const
+{
+	return (releaseMonth > other.getReleaseMonth() ||
+		releaseYear > other.getReleaseYear() ||
+		starringActor > other.getStarringActor());
+}
+
+bool ClassicMovie::operator>=(const ClassicMovie &other) const
+{
+	return (operator>(other) || operator==(other));
 }

@@ -53,16 +53,45 @@ bool TransactionManager::Borrow(BorrowTransaction * t, BinTree<Item>&
 {
 	Customer *account = accounts.getCustomer(t->getCustomerId());
 	Item *item = NULL;
+	Item *target = NULL;
+	if (t->getItemType() == 'C')
+	{
+		
+		ClassicMovie *temp = new ClassicMovie;
+		temp->setIdentifier(t->getItemType());
+		temp->setReleaseMonth(t->getMonth());
+		temp->setReleaseYear(t->getYear());
+		temp->setStarringActor(t->getActor());
+		target = dynamic_cast<Item*>(temp);
+	}
+	if (t->getItemType() == 'D')
+	{
+		DramaMovie *temp = new DramaMovie;
+		temp->setIdentifier(t->getItemType());
+		temp->setDirector(t->getDirector());
+		(temp)->setName(t->getTitle());
+		target = dynamic_cast<Item*>(temp);
+	}
+	if (t->getItemType() == 'F')
+	{
+		ComedyMovie *temp = new ComedyMovie;
+		temp->setIdentifier(t->getItemType());
+		(temp)->setReleaseYear(t->getYear());
+		(temp)->setName(t->getTitle());
+		target = dynamic_cast<Item*>(temp);
+	}
 	if (account == NULL)
 	{
 		cerr << "Account " << t->getCustomerId() << "could not be found." << endl;
 		return false;
 	}
-	if (!inventory.retrieve(t->getItemData(), item))
+	if (!inventory.retrieve(*target, item))
 	{
 		cerr << "Could not execute Borrow transaction: " << *t << endl;
 		return false;
 	}
+	item->Borrow(*t);
+	account->addTransaction(t);
 	return true;
 }
 

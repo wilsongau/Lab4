@@ -167,6 +167,7 @@ bool ReturnTransaction::initialize(const string & cmd)
 	//return true
 	//if no stock, check if its classic
 	//if classic, check related movie
+	return true;
 }
 
 

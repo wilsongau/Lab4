@@ -15,6 +15,9 @@
 #include "InventoryTransaction.h"
 #include "ReturnTransaction.h"
 #include "CustomerAccounts.h"
+#include "ComedyMovie.h"
+#include "DramaMovie.h"
+#include "ClassicMovie.h"
 #include "Item.h"
 #include "bintree.hpp"
 #include <iostream>

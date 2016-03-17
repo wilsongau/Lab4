@@ -17,6 +17,37 @@ DramaMovie::~DramaMovie()
 {
 }
 
+bool DramaMovie::operator==(const Movie &other) const
+{
+	return (director == other.getDirector() && name == other.getName());
+
+}
+
+bool DramaMovie::operator!=(const Movie &other) const
+{
+	return !operator==(other);
+}
+
+bool DramaMovie::operator<(const Movie &other) const
+{
+	return (name < other.getName() || director < other.getDirector());
+}
+
+bool DramaMovie::operator<=(const Movie &other) const
+{
+	return (operator<(other) || operator==(other));
+}
+
+bool DramaMovie::operator>(const Movie &other) const
+{
+	return (name > other.getName() || director > other.getDirector());
+}
+
+bool DramaMovie::operator>=(const Movie &other) const
+{
+	return (operator<(other) || operator==(other));
+}
+
 // ----------------------------------------------------------------------------
 //	operator<<
 //  output stream operator

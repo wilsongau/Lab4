@@ -24,6 +24,7 @@ public:
 	Item();
 	Item(const string &cmd);
 	~Item();
+	void setIdentifier(char id);
 	Item& operator=(const Item &);
 	bool operator==(const Item &) const;
 	bool operator!=(const Item &) const;

@@ -24,10 +24,16 @@ public:
 	BorrowTransaction(); // default constructor
 	~BorrowTransaction(); // deconstructor
 	int getCustomerId() const; // get customerID
+	char getIdentifier() const;
 	char getMediaType() const;  // get media type of the item being borrowed
 	char getItemType() const; // get identifier of item type being borrowed
-	string getItemData() const; // retrieves the item's data
-	void setItemData(const string &);
+	string getSearchData() const; // retrieves the item's data
+	string getTitle() const;
+	string getDirector() const;
+	string getActor() const;
+	void setActor(const string &);
+	int getYear() const;
+	int getMonth() const;
 	bool getCheckedOut() const; // checks if transaction is currently on loan
 	void setCheckedOut(bool value); // set checked out
 	bool initialize(const string &);
@@ -36,7 +42,12 @@ private:
 	int customerId;
 	char mediaType;
 	char itemType;
-	string itemData; //what is itemData?
+	string title;
+	int year;
+	int month;
+	string director;
+	string actor;
+	//string itemData; //what is itemData? the movie title to search for
 	char identifier = 'B';
 	bool checkedOut;
 };

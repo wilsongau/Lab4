@@ -22,16 +22,20 @@ class Movie : public Item
 
 public:
 	Movie();
+	Movie(const Movie&);
 	~Movie();
 
+	Movie& operator=(const Movie &);
 	//parse string for data to initialize the Movie with
 	bool initialize(const string &cmd);
 
 	//returns the director associated with a movie
 	string getDirector() const;
+	void setDirector(const string &dir);
 
 	//returns the year the movie was released
 	int getReleaseYear() const;
+	void setReleaseYear(int year);
 
 	//returns the type of the movie
 	string getType() const;

@@ -8,7 +8,8 @@
 // Header file for the ClassicMovie Class.  Contains data and stock information
 // for movies with the 'F' identifier. 
 // ---------------------------------------------------------------------------
-
+#ifndef COMEDY_MOVIE_HEADER
+#define COMEDY_MOVIE_HEADER
 #include "Movie.h"
 class ComedyMovie :
 	public Movie
@@ -19,4 +20,12 @@ public:
 	ComedyMovie();
 	ComedyMovie(const string &cmd);
 	~ComedyMovie();
+	bool operator==(const Movie &) const;
+	bool operator!=(const Movie &) const;
+	bool operator<(const Movie &) const;
+	bool operator<=(const Movie &) const;
+	bool operator>(const Movie &) const;
+	bool operator>=(const Movie &) const;
+
 };
+#endif
