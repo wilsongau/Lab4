@@ -6,6 +6,7 @@
 // ----------------------------------------------------------------------------
 Transaction::Transaction()
 {
+	identifier = 'T';
 }
 
 // ----------------------------------------------------------------------------
@@ -16,14 +17,26 @@ Transaction::~Transaction()
 {
 }
 
-bool Transaction::initialize(const string &)
+bool Transaction::initialize(const string &cmd)
 {
+	stringstream stream;
+	stream << cmd;
+	stream >> identifier;
 	return true;
 }
 
 char Transaction::getIdentifier() const
 {
 	return identifier;
+}
+
+Transaction & Transaction::operator=(const Transaction &other)
+{
+	if (this != &other)
+	{
+		identifier = other.identifier;
+	}
+	return *this;
 }
 
 //bool Transaction::loadString(const string & cmd)

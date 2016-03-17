@@ -28,6 +28,11 @@ int HistoryTransaction::getCustomerId() const
 	return customerId;
 }
 
+char HistoryTransaction::getIdentifier() const
+{
+	return identifier;
+}
+
 // ----------------------------------------------------------------------------
 //	operator=
 //  assignment operator overload
@@ -53,7 +58,7 @@ bool HistoryTransaction::initialize(const string &cmd)
 	ss >> temp;          // get customer id
 	if (is_number(temp))
 	{
-		stringstream(customerId) >> temp;
+		stringstream(temp) >> customerId;
 	}
 	return customerId != 0;
 }

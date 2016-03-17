@@ -19,7 +19,6 @@ class InventoryTransaction : public Transaction
 public:
 	InventoryTransaction(); // default constructor
 	~InventoryTransaction(); // deconstructor
-
 private:
 	char identifier = 'I';
 };

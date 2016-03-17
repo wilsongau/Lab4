@@ -19,8 +19,5 @@ class DramaMovie :
 public:
 	DramaMovie();
 	~DramaMovie();
-	DramaMovie(const string &cmd);
-	DramaMovie(int stock, const string &dir, const string &name,
-		int year, const string & type);
 };
 #endif

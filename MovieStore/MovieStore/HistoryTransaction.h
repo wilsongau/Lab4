@@ -22,6 +22,7 @@ public:
 	HistoryTransaction(); // default constructor
 	~HistoryTransaction(); // deconstructor
 	int getCustomerId() const; // gets the customer's id number 
+	char getIdentifier() const;
 	HistoryTransaction& operator=(const HistoryTransaction &t);
 	bool initialize(const string&);
 private:

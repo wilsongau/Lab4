@@ -61,3 +61,15 @@ bool ReturnTransaction::initialize(const string & cmd)
 {
 	return false;
 }
+
+ReturnTransaction & ReturnTransaction::operator=(const ReturnTransaction &other)
+{
+	if (this != &other)
+	{
+		identifier = other.identifier;
+		customerId = other.customerId;
+		mediaType = other.mediaType;
+		itemType = other.itemType;
+	}
+	return *this;
+}

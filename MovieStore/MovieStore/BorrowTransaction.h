@@ -31,6 +31,7 @@ public:
 	bool getCheckedOut() const; // checks if transaction is currently on loan
 	void setCheckedOut(bool value); // set checked out
 	bool initialize(const string &);
+	BorrowTransaction& operator=(const BorrowTransaction &);
 private:
 	int customerId;
 	char mediaType;

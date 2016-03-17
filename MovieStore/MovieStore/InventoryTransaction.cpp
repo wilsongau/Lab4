@@ -12,6 +12,7 @@ using namespace std;
 
 InventoryTransaction::InventoryTransaction()
 {
+	identifier = 'I';
 }
 
 InventoryTransaction::~InventoryTransaction()

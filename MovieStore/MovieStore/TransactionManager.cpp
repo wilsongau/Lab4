@@ -19,17 +19,17 @@ bool TransactionManager::performTransaction(Transaction * t, CustomerAccounts
 	}
 	else if (t->getIdentifier() == 'H')
 	{
-		HistoryTransaction * historyTransaction = (HistoryTransaction*)&t;
+		HistoryTransaction * historyTransaction = dynamic_cast<HistoryTransaction*>(t);
 		return History(historyTransaction, accounts);
 	}
 	else if (t->getIdentifier() == 'B')
 	{
-		BorrowTransaction * borrowTransaction = (BorrowTransaction*)&t;
+		BorrowTransaction * borrowTransaction = dynamic_cast<BorrowTransaction*>(t);
 		return Borrow(borrowTransaction, inventory, accounts);
 	}
 	else if (t->getIdentifier() == 'R')
 	{
-		ReturnTransaction * returnTransaction = (ReturnTransaction*)&t;
+		ReturnTransaction * returnTransaction = dynamic_cast<ReturnTransaction*>(t);
 		return Return(returnTransaction, inventory, accounts);
 	}
 	return false;

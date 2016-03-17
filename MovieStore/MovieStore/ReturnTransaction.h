@@ -32,13 +32,14 @@ public:
 	string getItemData() const; // gets the item's data string
 	bool initialize(const string &cmd); // initialize data
 	//bool findItem(HashTable<Item> *inventory) const; // gets the item // should be handled in TransactionManager
+	ReturnTransaction& operator=(const ReturnTransaction &);
 
 private:
 	int customerId;
 	char mediaType;
 	char itemType;
 	string itemData;
-	Item* item;
+	//Item* item; I don't think we need to point to the item here, TransactionManager will search for it when the transaction is processed
 	char identifier = 'R';
 };
 

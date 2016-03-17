@@ -10,31 +10,30 @@ Item * ItemFactory::MakeItem(string command, const string &identifier,
 	Item *item = NULL;
 	if (identifier == MOVIE_COMEDY)
 	{
-		item = (Item*)new ComedyMovie;
-		if (!item->initialize(command))
+		ComedyMovie *temp = new ComedyMovie;
+		if (temp->initialize(command))
 		{
-			delete item;
-			item = NULL;
+			return dynamic_cast<Item*>(temp);
 		}
+		delete temp;
 	}
 	else if (identifier == MOVIE_CLASSIC)
 	{
 		ClassicMovie *temp = new ClassicMovie;
-		if (!temp->initialize(command, inventory))
+		if (temp->initialize(command, inventory))
 		{
-			delete item;
-			item = NULL;
+			return dynamic_cast<Item*>(temp);
 		}
-		item = (Item*)temp;
+		delete temp;
 	}
 	else if (identifier == MOVIE_DRAMA)
 	{
-		item = (Item*)new DramaMovie;
-		if (!item->initialize(command))
+		DramaMovie *temp = new DramaMovie;
+		if (temp->initialize(command))
 		{
-			delete item;
-			item = NULL;
+			return dynamic_cast<Item*>(temp);
 		}
+		delete temp;
 	}
 	return item;
 }

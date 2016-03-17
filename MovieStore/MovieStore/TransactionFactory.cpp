@@ -14,39 +14,39 @@ Transaction * TransactionFactory::MakeTransaction(string command)
 	string id = command.substr(0, 1);
 	if (id == RETURN)
 	{
-		t = new ReturnTransaction;
-		if (!t->initialize(command))
+		ReturnTransaction *temp = new ReturnTransaction;
+		if (temp->initialize(command))
 		{
-			delete t;
-			t = NULL;
+			return dynamic_cast<Transaction*>(temp);
 		}
+		delete temp;
 	}
 	else if (id == INVENTORY)
 	{
-		t = new InventoryTransaction;
-		if (!t->initialize(command))
+		InventoryTransaction *temp = new InventoryTransaction;
+		if (temp->initialize(command))
 		{
-			delete t;
-			t = NULL;
+			return dynamic_cast<Transaction*>(temp);
 		}
+		delete temp;
 	}
 	else if (id == HISTORY)
 	{
-		t = new HistoryTransaction;
-		if (!t->initialize(command))
+		HistoryTransaction *temp = new HistoryTransaction;
+		if (temp->initialize(command))
 		{
-			delete t;
-			t = NULL;
+			return dynamic_cast<Transaction*>(temp);
 		}
+		delete temp;
 	}
 	else if (id == BORROW)
 	{
-		t = new BorrowTransaction;
-		if (!t->initialize(command))
+		BorrowTransaction *temp = new BorrowTransaction;
+		if (temp->initialize(command))
 		{
-			delete t;
-			t = NULL;
+			return dynamic_cast<Transaction*>(temp);
 		}
+		delete temp;
 	}
 	return t;
 }

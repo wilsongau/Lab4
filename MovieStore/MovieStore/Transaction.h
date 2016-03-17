@@ -19,12 +19,13 @@ class Transaction
 public:
 	Transaction(); //default constructor
 	~Transaction(); //deconstructor
-	bool initialize(const string&);
-	char getIdentifier() const; // returns the identifier of child class type
+	virtual bool initialize(const string&);
+	virtual char getIdentifier() const; // returns the identifier of child class type
+	virtual Transaction& operator=(const Transaction &);
 protected:
 	//bool loadString(const string&);
 	bool is_number(const string&) const;
 private:
-	char identifier = 'T';
+	char identifier;
 };
 #endif

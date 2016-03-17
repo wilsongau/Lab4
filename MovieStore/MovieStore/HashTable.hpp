@@ -63,17 +63,19 @@ HashTable<T>::~HashTable()
 //  Retrieving an element from the hash table
 // ----------------------------------------------------------------------------
 template<class T>
-bool HashTable<T>::get(const string & hashString, const T target, T & result) const //why do we have target and result? would they be the same?
+bool HashTable<T>::get(const string & hashString, const T target, T & result) const //why do we have target and result? would they be the same? -- in case of collisions
 {
 	//return retrieve function at LinkedList class at hashTable[hash(hashString)]
 	int index = hash(hashString);
-	return hashTable[index].Peek(target, result); //WE DON'T HAVE PEEK ANYMORE, since you use STD library list
 	//I am not sure if this is the correct way to do this
-	list<T>::iterator iter = find(hashTable[index].begin(), hashTable[index], target);
-	if (iter == target)
+	list<T>::iterator iter;
+	for (iter = hashTable[index].begin(); iter != hashTable[index].end(); ++iter)
 	{
-		result = target;
-		return true;
+		if (*iter == target)
+		{
+			result = target;
+			return true;
+		}
 	}
 	return false;
 }

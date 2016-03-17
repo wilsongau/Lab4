@@ -33,6 +33,7 @@ public:
 
 	// Returns the customer Id
 	int getId() const;
+	void setId(int id);
 
 	// Returns customer's first name
 	string getFirstName() const;

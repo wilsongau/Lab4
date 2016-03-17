@@ -28,10 +28,6 @@ public:
 private:
 	// Holds a hashTable of customers
 	HashTable<Customer> customers;
-
-	//check for the duplicate customers
-	//	will be called internally in the insert function
-	bool isExistingCustomer(const int &) const;
 };
 
 #endif
