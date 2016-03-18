@@ -89,8 +89,20 @@ void Customer::printHistory() const
 	if (size > 0) 
 	{
 		for (int i = 0; i < size; i++) 
-		{			
-			cout << transactionHistory[i];
+		{
+			if (transactionHistory[i]->getIdentifier() == 'B')
+			{
+				cout << *dynamic_cast<BorrowTransaction*>(transactionHistory[i]) << endl;
+			}
+			else if (transactionHistory[i]->getIdentifier() == 'R')
+			{
+				cout << *dynamic_cast<ReturnTransaction*>(transactionHistory[i]) << endl;
+			}
+			else
+			{
+				cout << *transactionHistory[i];
+			}
+			
 		}
 		cout << endl;
 	}
@@ -126,6 +138,11 @@ bool Customer::addTransaction(Transaction * trans)
 			transactionHistory.push_back(trans);
 			return true;
 		}
+	}
+	else
+	{
+		transactionHistory.push_back(trans);
+		return true;
 	}
 	return false;
 }

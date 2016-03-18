@@ -121,3 +121,12 @@ bool Transaction::is_number(const string & s) const
 	return (!s.empty() && it == s.end());
 }
 
+// ----------------------------------------------------------------------------
+//  operator<<
+//  output stream operator
+// ----------------------------------------------------------------------------
+ostream& operator<<(ostream &out, const Transaction &transaction)
+{
+	out << transaction.identifier;
+	return out;
+}

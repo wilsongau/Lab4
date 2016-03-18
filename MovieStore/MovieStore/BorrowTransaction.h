@@ -54,7 +54,7 @@ private:
 	string actor;
 	//string itemData; //what is itemData? the movie title to search for
 	char identifier = 'B';
-	bool checkedOut;
+	bool checkedOut = true;
 	Item * item;
 };
 
