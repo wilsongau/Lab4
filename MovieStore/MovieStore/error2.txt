@@ -1,0 +1,60 @@
+In file included from ClassicMovie.h:15:0,
+                 from ItemFactory.h:14,
+                 from Store.h:16,
+                 from 343_Lab4_Main.cpp:11:
+bintree.hpp:48:12: error: declaration of ‘class T’
+  template <class T>
+            ^
+bintree.hpp:44:11: error:  shadows template parm ‘class T’
+ template <typename T>
+           ^
+bintree.cpp:4:21: fatal error: bintree.h: No such file or directory
+ #include "bintree.h"
+                     ^
+compilation terminated.
+In file included from ClassicMovie.h:15:0,
+                 from ClassicMovie.cpp:1:
+bintree.hpp:48:12: error: declaration of ‘class T’
+  template <class T>
+            ^
+bintree.hpp:44:11: error:  shadows template parm ‘class T’
+ template <typename T>
+           ^
+In file included from ClassicMovie.h:15:0,
+                 from ItemFactory.h:14,
+                 from Store.h:16,
+                 from InventoryTransaction.cpp:9:
+bintree.hpp:48:12: error: declaration of ‘class T’
+  template <class T>
+            ^
+bintree.hpp:44:11: error:  shadows template parm ‘class T’
+ template <typename T>
+           ^
+In file included from ClassicMovie.h:15:0,
+                 from ItemFactory.h:14,
+                 from ItemFactory.cpp:1:
+bintree.hpp:48:12: error: declaration of ‘class T’
+  template <class T>
+            ^
+bintree.hpp:44:11: error:  shadows template parm ‘class T’
+ template <typename T>
+           ^
+In file included from ClassicMovie.h:15:0,
+                 from ItemFactory.h:14,
+                 from Store.h:16,
+                 from Store.cpp:1:
+bintree.hpp:48:12: error: declaration of ‘class T’
+  template <class T>
+            ^
+bintree.hpp:44:11: error:  shadows template parm ‘class T’
+ template <typename T>
+           ^
+In file included from ClassicMovie.h:15:0,
+                 from TransactionManager.h:20,
+                 from TransactionManager.cpp:1:
+bintree.hpp:48:12: error: declaration of ‘class T’
+  template <class T>
+            ^
+bintree.hpp:44:11: error:  shadows template parm ‘class T’
+ template <typename T>
+           ^

@@ -28,6 +28,8 @@ int main()
 			store.ReadAction(line);
 		}
 	}
+	cin.get();
+	cin.get();
 	return 0;
 }
 #endif

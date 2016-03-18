@@ -14,6 +14,7 @@
 #include "ReturnTransaction.h"
 #include "InventoryTransaction.h"
 #include "HistoryTransaction.h"
+using namespace std;
 class TransactionFactory
 {
 public:

@@ -30,7 +30,6 @@ class LinkedList
 	}
 
 public:
-	struct Node;
 	LinkedList();
 	LinkedList(const LinkedList &source);
 	~LinkedList();
@@ -165,7 +164,7 @@ bool LinkedList<T>::Remove(T target, T &result)
 {
 	if (isEmpty())
 	{
-		throw runtime_error("Empty list");
+		//throw runtime_error("Empty list");
 		return false;
 	}
 

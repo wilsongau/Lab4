@@ -14,6 +14,7 @@
 #include "HashTable.hpp"
 #include "Customer.h"
 #include <istream>
+using namespace std;
 class CustomerAccounts
 {
 public:

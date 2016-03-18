@@ -13,6 +13,7 @@
 #ifndef HISTORY_HEADER
 #define HISTORY_HEADER
 #include "Transaction.h"
+using namespace std;
 class HistoryTransaction : public Transaction
 {
 	// output steam override

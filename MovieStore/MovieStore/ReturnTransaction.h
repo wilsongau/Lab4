@@ -18,6 +18,7 @@
 #include "Transaction.h"
 #include "Item.h"
 #include "HashTable.hpp"
+using namespace std;
 class ReturnTransaction : public Transaction
 {
 	//output stream override

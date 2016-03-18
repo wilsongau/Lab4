@@ -12,6 +12,7 @@
 #ifndef INVENTORY_HEADER
 #define INVENTORY_HEADER
 #include "Transaction.h"
+using namespace std;
 class InventoryTransaction : public Transaction
 {
 	// output stream override

@@ -11,6 +11,7 @@
 #ifndef DRAMA_HEADER
 #define DRAMA_HEADER
 #include "Movie.h"
+using namespace std;
 class DramaMovie :
 	public Movie
 {

@@ -17,6 +17,7 @@
 #include "Transaction.h"
 #include "ReturnTransaction.h"
 #include "Item.h"
+using namespace std;
 class BorrowTransaction : public Transaction
 {
 	// output stream override

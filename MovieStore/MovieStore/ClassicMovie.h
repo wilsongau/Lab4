@@ -14,6 +14,7 @@
 #include "Movie.h"
 #include "bintree.hpp"
 #include <list>
+using namespace std;
 class ClassicMovie :
 	public Movie
 {

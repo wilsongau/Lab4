@@ -11,6 +11,7 @@
 #ifndef COMEDY_MOVIE_HEADER
 #define COMEDY_MOVIE_HEADER
 #include "Movie.h"
+using namespace std;
 class ComedyMovie :
 	public Movie
 {

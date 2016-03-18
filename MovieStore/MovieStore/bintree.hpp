@@ -45,8 +45,8 @@ template <typename T>
 class BinTree 
 {
 	//operator<< overload
-	template <class T>
-	friend ostream& operator<<(ostream&, const BinTree<T>&);
+	template <typename T1>
+	friend ostream& operator<<(ostream&, const BinTree<T1>&);
 
 public:
 	//constructor and destructor

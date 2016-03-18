@@ -19,6 +19,7 @@
 #include "TransactionManager.h"
 #include "ClassicMovie.h"
 #include "HashTable.hpp"
+using namespace std;
 const static string ITEM_IDENTIFIERS[] = { "F", "C", "D" };
 const static string TRANSACTION_IDENTIFIERS[] = { "H", "B", "R", "I" };
 class Store

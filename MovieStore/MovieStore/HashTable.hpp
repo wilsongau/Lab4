@@ -79,8 +79,8 @@ bool HashTable<T>::get(const string & hashString, const T &target, T *& result) 
 		return false;
 	}
 	//I am not sure if this is the correct way to do this
-	list<T>::iterator iter;
-	for (iter = hashTable[index].begin(); iter != hashTable[index].end(); iter++) //I think you should use iter++, otherwise it never go through first element
+	
+	for (typename list<T>::iterator iter = hashTable[index].begin(); iter != hashTable[index].end(); iter++) //I think you should use iter++, otherwise it never go through first element
 	{
 		if (*iter == target)
 		{
