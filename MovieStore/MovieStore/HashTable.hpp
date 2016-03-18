@@ -25,7 +25,7 @@ public:
 	~HashTable(); //destructor
 
 	//Retrieves an element from the hash table
-	bool get(const string &hashString, const T target, T *&result); 
+	bool get(const string &hashString, const T &target, T *&result); 
 
 	//Insert element at the hash table
 	bool Insert(T *item, const string &hashstring); 
@@ -70,7 +70,7 @@ HashTable<T>::~HashTable()
 //  Retrieving an element from the hash table
 // ----------------------------------------------------------------------------
 template<class T>
-bool HashTable<T>::get(const string & hashString, const T target, T *& result) //why do we have target and result? would they be the same? -- in case of collisions
+bool HashTable<T>::get(const string & hashString, const T &target, T *& result) //why do we have target and result? would they be the same? -- in case of collisions
 {
 	//return retrieve function at LinkedList class at hashTable[hash(hashString)]
 	int index = hash(hashString);

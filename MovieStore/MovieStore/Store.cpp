@@ -46,10 +46,16 @@ bool Store::ReadAction(const string & action)
 		if (id == ITEM_IDENTIFIERS[i])
 		{
 			Item *newItem = NULL;
-			newItem = itemFactory.MakeItem(action, id, inventory);
+			newItem = itemFactory.MakeItem(action, id);
 			if (newItem != NULL)
 			{
 				inventory.insert(newItem);
+				if (newItem->getIdentifier() == 'C')
+				{
+					ClassicMovie *temp = dynamic_cast<ClassicMovie*>(newItem);
+					string hash = to_string(temp->getReleaseMonth()) + to_string(temp->getReleaseYear()) + temp->getStarringActor();
+					classics.Insert(temp, hash);
+				}
 				return true;
 			}
 			cerr << "Invalid Command: " << action << endl;
@@ -67,7 +73,7 @@ bool Store::ReadAction(const string & action)
 			if (newTransaction != NULL)
 			{
 				return transactionManager.performTransaction(newTransaction,
-					accounts, inventory);
+					accounts, inventory, classics);
 			}
 			cerr << "Invalid Command: " << action << endl;
 			return false;

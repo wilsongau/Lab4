@@ -28,7 +28,7 @@ public:
 	TransactionManager();
 	~TransactionManager();
 	bool performTransaction(Transaction * t, CustomerAccounts &accounts, 
-		BinTree<Item> &items);  // switch selection for transaction type
+		BinTree<Item> &items, HashTable<ClassicMovie> &classics);  // switch selection for transaction type
 private:
 	// print transaction history for a particular account
 	bool History(HistoryTransaction *t, 
@@ -36,11 +36,11 @@ private:
 
 	// borrow an item from the store
 	bool Borrow(BorrowTransaction *t, BinTree<Item> &inventory, 
-		CustomerAccounts &accounts);
+		CustomerAccounts &accounts, HashTable<ClassicMovie> &classics);
 
 	// return an item to the store
 	bool Return(ReturnTransaction *t, BinTree<Item> &inventory, 
-		CustomerAccounts &accounts);
+		CustomerAccounts &accounts, HashTable<ClassicMovie> &classics);
 };
 
 #endif

@@ -4,8 +4,7 @@
 //	MakeItem(string)
 //  Create Item
 // ----------------------------------------------------------------------------
-Item * ItemFactory::MakeItem(string command, const string &identifier, 
-	BinTree<Item> &inventory)
+Item * ItemFactory::MakeItem(string command, const string &identifier)
 {
 	Item *item = NULL;
 	if (identifier == MOVIE_COMEDY)
@@ -20,7 +19,7 @@ Item * ItemFactory::MakeItem(string command, const string &identifier,
 	else if (identifier == MOVIE_CLASSIC)
 	{
 		ClassicMovie *temp = new ClassicMovie;
-		if (temp->initialize(command, inventory))
+		if (temp->initialize(command))
 		{
 			return dynamic_cast<Item*>(temp);
 		}

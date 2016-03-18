@@ -17,6 +17,8 @@
 #include "bintree.hpp"
 #include "TransactionFactory.h"
 #include "TransactionManager.h"
+#include "ClassicMovie.h"
+#include "HashTable.hpp"
 const static string ITEM_IDENTIFIERS[] = { "F", "C", "D" };
 const static string TRANSACTION_IDENTIFIERS[] = { "H", "B", "R", "I" };
 class Store
@@ -31,6 +33,7 @@ public:
 	bool ReadAction(const string &action);
 private:
 	BinTree<Item> inventory; // Hash table of items
+	HashTable<ClassicMovie> classics;
 	CustomerAccounts accounts; // Wrapper object for Customers
 	ItemFactory itemFactory;
 	TransactionFactory transactionFactory;
